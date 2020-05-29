@@ -18,6 +18,7 @@ kanri-->insert
 kanri-->klist:リンク\nid
 del-->del:POST\nid
 find-->klist:リンク\nid or name or date
+klist-->del:リンク\nid
 
 update-->update:POST\nid\nname\nage\nmail\npass
 klist->update:リンク\nid
