@@ -1,0 +1,25 @@
+@startuml
+title ページ遷移図
+login:ログインページ
+top:トップページ
+kanri : 会員一覧
+del:GET 削除確認\nPOST 削除
+update:GET 編集\nPOST 更新
+insert:追加
+klist:会員詳細
+find:検索
+
+[*]->login
+login->top
+top-->kanri:リンク
+top-->find:リンク
+kanri-->del:リンク\nid
+kanri-->insert
+kanri-->klist:リンク\nid
+del-->del:POST\nid
+find-->klist:リンク\nid or name
+
+update-->update:POST\nid\nname\nage\nmail\npass
+klist-->update:リンク\nid
+
+@enduml
