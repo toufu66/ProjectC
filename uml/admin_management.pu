@@ -20,6 +20,6 @@ del-->del:POST\nid
 find-->klist:リンク\nid or name or date
 
 update-->update:POST\nid\nname\nage\nmail\npass
-klist-->update:リンク\nid
+klist->update:リンク\nid
 
 @enduml
