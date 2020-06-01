@@ -1,0 +1,22 @@
+@startuml
+
+title 商品の削除
+
+autonumber "#."
+
+actor 管理者
+participant ログインページ
+participant トップページ
+participant 管理者データ操作
+database 管理者DB
+
+管理者 -[#green]> ログインページ:名前とパスワードを入力
+ログインページ -[#blue]> 管理者データ操作:遷移
+管理者データ操作 -[#red]> 管理者DB:検索
+管理者DB --[#red]> 管理者データ操作:データと一致
+管理者データ操作 -[#blue]> トップページ:遷移
+トップページ --[#green]> 管理者 :表示
+
+
+
+@enduml
