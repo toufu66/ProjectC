@@ -7,13 +7,12 @@ actor 管理者
 participant ユーザ一覧画面
 participant 詳細画面
 database ユーザDB
-participant ユーザ
 
 管理者 -[#green]> ユーザ一覧画面:ユーザネームをクリック
-ユーザ一覧画面 -[#blue]> 詳細画面:遷移
-詳細画面 -> ユーザDB:データ検索
-ユーザDB -> ユーザ:生成
+
+ユーザ一覧画面 -> ユーザDB:データ検索
 ユーザDB --> 詳細画面:ユーザ
+ユーザ一覧画面 -[#blue]> 詳細画面:遷移
 詳細画面 --[#green]> 管理者:ユーザ詳細
 
 @enduml
