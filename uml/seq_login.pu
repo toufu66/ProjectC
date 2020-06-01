@@ -1,6 +1,6 @@
 @startuml
 
-title 商品の削除
+title ログイン
 
 autonumber "#."
 

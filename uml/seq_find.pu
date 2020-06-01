@@ -1,18 +1,18 @@
 @startuml
-title 会員の削除
+title ユーザの検索
 
 autonumber "#."
 
 actor 管理者
 participant 検索画面
 participant 検索結果一覧
-database 会員DB
-participant 会員
+database ユーザDB
+participant ユーザ
 
 管理者 -[#green]> 検索画面:検索フォームに入力
 検索画面 -[#blue]> 検索結果一覧:遷移
-検索結果一覧 -> 会員DB:データ検索
-会員DB -> 会員:生成
-会員DB --> 検索結果一覧:会員
+検索結果一覧 -> ユーザDB:データ検索
+ユーザDB -> ユーザ:生成
+ユーザDB --> 検索結果一覧:ユーザ
 検索結果一覧 --[#green]> 管理者:表示
 @enduml

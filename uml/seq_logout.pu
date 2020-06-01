@@ -1,24 +1,18 @@
 @startuml
-@startuml
-title 商品の削除
+
+title ログアウト
 
 autonumber "#."
 
-actor ユーザ
-participant 商品一覧画面
-participant 削除画面
-database 商品DB
-participant 商品
+actor 管理者
+participant ログインページ
+participant ヘッダーログアウト
+participant ログインセッション
 
-ユーザ -[#green]> 商品一覧画面:削除ボタン
-商品一覧画面 -[#blue]> 削除画面:遷移
-削除画面 -> 商品DB:データ検索
-商品DB -> 商品:生成
-商品DB --> 削除画面:商品
-削除画面 --[#green]> ユーザ:確認画面
-ユーザ -[#green]> 削除画面:削除ボタン
-削除画面 -> 商品DB:削除
-削除画面 -[#blue]> 商品一覧画面:遷移
-商品一覧画面 --[#green]> ユーザ:表示
-@enduml
+管理者 -[#green]> ヘッダーログアウト:ログアウトボタンを押す
+ヘッダーログアウト --[#green]> 管理者:ログアウト確認の表示
+管理者 -[#green]> ヘッダーログアウト:ログアウト「はい」を押す
+ヘッダーログアウト-[#red]> ログインセッション:セッションを取り消す
+ヘッダーログアウト-[#blue]> ログインページ:遷移
+ログインページ -[#green]> 管理者:表示
 @enduml
