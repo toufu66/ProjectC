@@ -1,0 +1,19 @@
+@startuml
+title 会員の追加
+
+autonumber "#."
+
+actor 管理者
+participant 会員一覧画面
+participant 追加画面
+database 会員DB
+participant 会員
+
+管理者 -[#green]> 会員一覧画面:追加ボタン
+会員一覧画面 -[#blue]> 追加画面:遷移
+追加画面 -> 会員:生成
+
+追加画面 -> 会員DB:追加
+追加画面 -[#blue]> 会員一覧画面:遷移
+会員一覧画面 --[#green]> 管理者:表示
+@enduml
