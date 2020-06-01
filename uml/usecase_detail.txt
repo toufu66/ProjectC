@@ -25,7 +25,7 @@
 
 シナリオ:
 	1.        ユーザー検索
-		 user id:[3]  [find]
+		 user id:[4]  [find]
 						   ↓
 						   ↓
 						   ↓
