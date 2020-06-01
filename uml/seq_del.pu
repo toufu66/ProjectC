@@ -1,22 +1,22 @@
 @startuml
-title 会員の削除
+title ユーザの削除
 
 autonumber "#."
 
 actor 管理者
-participant 会員一覧画面
+participant ユーザ一覧画面
 participant 削除画面
-database 会員DB
-participant 会員
+database ユーザDB
+participant ユーザ
 
-管理者 -[#green]> 会員一覧画面:削除ボタン
-会員一覧画面 -[#blue]> 削除画面:遷移
-削除画面 -> 会員DB:データ検索
-会員DB -> 会員:生成
-会員DB --> 削除画面:会員
+管理者 -[#green]> ユーザ一覧画面:削除ボタン
+ユーザ一覧画面 -[#blue]> 削除画面:遷移
+削除画面 -> ユーザDB:データ検索
+ユーザDB -> ユーザ:生成
+ユーザDB --> 削除画面:ユーザ
 削除画面 --[#green]> 管理者:確認画面
 管理者 -[#green]> 削除画面:削除ボタン
-削除画面 -> 会員DB:削除
-削除画面 -[#blue]> 会員一覧画面:遷移
-会員一覧画面 --[#green]> 管理者:表示
+削除画面 -> ユーザDB:削除
+削除画面 -[#blue]> ユーザ一覧画面:遷移
+ユーザ一覧画面 --[#green]> 管理者:表示
 @enduml
