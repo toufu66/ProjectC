@@ -3,7 +3,7 @@ title 会員の削除
 
 autonumber "#."
 
-actor ユーザ
+actor 管理者
 participant 会員一覧画面
 participant 削除画面
 database 会員DB
@@ -18,5 +18,5 @@ participant 会員
 ユーザ -[#green]> 削除画面:削除ボタン
 削除画面 -> 会員DB:削除
 削除画面 -[#blue]> 会員一覧画面:遷移
-会員一覧画面 --[#green]> ユーザ:表示
+会員一覧画面 --[#green]> 管理者:表示
 @enduml

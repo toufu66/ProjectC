@@ -3,7 +3,6 @@ title 会員の追加
 
 autonumber "#."
 
-
 actor 管理者
 participant 会員一覧画面
 participant 追加画面
