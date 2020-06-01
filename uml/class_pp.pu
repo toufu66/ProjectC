@@ -1,4 +1,6 @@
 @startuml
+left to right direction
+rectangle 会員管理システム{
 package 画面{
 	class ログインページ{
 
@@ -86,4 +88,5 @@ package データベース{
 ユーザデータ *-- 日付データ
 ユーザデータ *-- 会員クラスデータ
 
+}
 @enduml
