@@ -20,9 +20,9 @@ findServlet -> UserDAO++:findUser()
 UserDAO -> User**:リストを生成
 UserDAO -> findServlet--:Userリスト
 findServlet -> Request++:setAttribute(Userリスト)
-
-Request--
 findServlet -> list:リダイレクト
+list -> Request:getAttribute(Userリスト)
+Request--
 list --> 管理者:表示
 
 
