@@ -4,8 +4,7 @@ autonumber "#."
 actor 管理者
 database User
 
-管理者 -[#green]> List.jsp:削除リンククリック
-List.jsp ->DelServlet:GETリクエスト
+管理者 -[#green]>DelServlet:GETリクエスト
 DelServlet -> del.jsp:フォワード
 del.jsp --[#green]> 管理者:確認画面表示
 管理者 -[#green]> del.jsp:削除ボタンクリック
