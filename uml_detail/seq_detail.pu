@@ -15,7 +15,7 @@ Detail -> UserDAO :UserDAO生成
 Detail -> UserDAO :findByUid()
 UserDAO -> User:リスト生成
 UserDAO --> Detail:ユーザリスト
-Detail -> detail.jsp:setAttribute(Userリスト)
+Detail -> request:setAttribute(Userリスト)
 Detail -> detail.jsp:フォワード
 detail.jsp --[#green]> 管理者:ユーザ詳細表示
 
