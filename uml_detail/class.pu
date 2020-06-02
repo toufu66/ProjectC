@@ -9,29 +9,29 @@ package 画面{
 		+doGet()
 	}
 	class List{
-		oGet()
+		+doGet()
 	}
 	class Find{
-		doGet()
-		doPost()
+		+doGet()
+		+doPost()
 	}
 	class Delete{
-		doGet()
-		doPost()
+		+doGet()
+		+doPost()
 	}
 	class Insert{
-		doGet()
-		doPost()
+		+doGet()
+		+doPost()
 	}
 	class Update{
-		doGet()
-		doPost()
+		+doGet()
+		+doPost()
 	}
 	class Detail{
-		doGet()
+		+doGet()
 	}
 	class Logout{
-		doGet()
+		+doGet()
 	}
 
 
