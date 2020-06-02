@@ -1,19 +1,19 @@
 @startuml
-title 会員削除 /delete()
+title 会員削除
 autonumber "#."
 actor 管理者
 database User
 
-管理者 -[#green]> List:削除リンククリック
-List ->DelServret:GETリクエスト
-DelServret -> del.jsp:フォワード
+管理者 -[#green]> List.jsp:削除リンククリック
+List.jsp ->DelServlet:GETリクエスト
+DelServlet -> del.jsp:フォワード
 del.jsp --[#green]> 管理者:確認画面表示
 管理者 -[#green]> del.jsp:削除ボタンクリック
-del.jsp -> DelServret:POST
-DelServret -> UserDAO:UserDAO生成
-DelServret -> UserDAO:削除
+del.jsp -> DelServlet:POST
+DelServlet -> UserDAO:UserDAO生成
+DelServlet -> UserDAO:削除
 UserDAO -> User:delete()
-DelServret-[#blue]> List:遷移
-List --[#green]> 管理者:表示
+Del.jsp-[#blue]> List.jsp:遷移
+List.jsp --[#green]> 管理者:表示
 database User
 @enduml
