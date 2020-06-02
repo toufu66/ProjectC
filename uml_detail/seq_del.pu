@@ -1,0 +1,19 @@
+@startuml
+title ユーザの削除
+
+autonumber "#."
+
+actor 管理者
+participant ユーザ一覧画面
+participant 削除画面
+database ユーザDB
+
+
+管理者 -[#green]> ユーザ一覧画面:削除ボタン
+ユーザ一覧画面 -[#blue]> 削除画面:遷移
+削除画面 --[#green]> 管理者:確認画面
+管理者 -[#green]> 削除画面:削除ボタン
+削除画面 -> ユーザDB:データ削除
+削除画面 -[#blue]> ユーザ一覧画面:遷移
+ユーザ一覧画面 --[#green]> 管理者:表示
+@enduml
