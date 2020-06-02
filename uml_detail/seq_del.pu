@@ -1,19 +1,18 @@
 @startuml
-title ユーザの削除
-
-autonumber "#."
-
+title 会員削除 /delete()
 actor 管理者
-participant ユーザ一覧画面
-participant 削除画面
-database ユーザDB
+database User
 
-
-管理者 -[#green]> ユーザ一覧画面:削除ボタン
-ユーザ一覧画面 -[#blue]> 削除画面:遷移
-削除画面 --[#green]> 管理者:確認画面
-管理者 -[#green]> 削除画面:削除ボタン
-削除画面 -> ユーザDB:データ削除
-削除画面 -[#blue]> ユーザ一覧画面:遷移
-ユーザ一覧画面 --[#green]> 管理者:表示
+管理者 -[#green]> List:削除リンククリック
+List ->DelServret:GETリクエスト
+DelServret -> del.jsp:フォワード
+del.jsp --[#green]> 管理者:確認画面表示
+管理者 -[#green]> del.jsp:削除ボタンクリック
+del.jsp -> DelServret:POST
+DelServret -> UserDAO:UserDAO生成
+DelServret -> UserDAO:削除
+UserDAO -> User:delete()
+DelServret-[#blue]> List:遷移
+List --[#green]> 管理者:表示
+database User
 @enduml
