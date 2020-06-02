@@ -7,8 +7,8 @@ actor 管理者
 participant findServlet
 participant find.jsp
 
-database UserDAO
-participant User
+participant UserDAO
+database User
 
 
 管理者 -> findServlet:Getリクエスト
@@ -16,12 +16,13 @@ findServlet -> find.jsp:フォワード
 find.jsp --> 管理者:表示
 管理者 -> findServlet:Postリクエスト
 findServlet -> UserDAO**:new UserDAO()
-findServlet -> UserDAO++:findUser
+findServlet -> UserDAO++:findUser()
 UserDAO -> User**:リストを生成
 UserDAO -> findServlet--:Userリスト
 findServlet -> Request++:setAttribute(Userリスト)
+
 Request--
-findServlet -> list.jsp:フォワード
+findServlet -> list:リダイレクト
 list --> 管理者:表示
 
 
