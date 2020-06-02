@@ -1,0 +1,96 @@
+@startuml
+left to right direction
+rectangle 会員管理システム{
+package 画面{
+	class Login{
+
+	}
+	class Top{
+
+	}
+	class UserList{
+
+	}
+	class UserFind{
+
+	}
+	class UserDelete{
+
+	}
+	class UserInsert{
+
+	}
+	class UserUpdate{
+
+	}
+	class UserDetail{
+
+	}
+	class Logout{
+
+	}
+
+
+}
+
+package データベース{
+	class UserDAO{
+		+insert(User user):void
+		+delete(int uid):void
+		+fyndByUid(int uid):User
+		+findByDetail(String name,String ruby,Timestamp time):ArryList<User>
+		+findByAll():ArryList<User>
+	}
+	class User{
+		-name:String
+		-gender:int
+		-birthday:Timestamp
+		-mail:String
+		-point:int
+		-password:String
+		-class:int
+	}
+	class Admin{
+		-user:String
+		-password:String
+	}
+	class AdminDAO{
+
+		+login(String user,String password)
+
+	}
+	class TimeTable{
+		-uid:int
+		-time:timestamp
+
+	}
+	class Gender{
+		-gid:int
+		-gender:String
+
+	}
+	class Userclass{
+		-cid:int
+		-class:String
+
+	}
+
+}
+
+
+Login ..> AdminDAO
+
+UserList ..> UserDAO
+UserInsert ..> UserDAO
+UserUpdate ..> UserDAO
+UserDelete ..> UserDAO
+UserFind ..> UserDAO
+UserDetail ..>UserDAO
+UserDAO *--  User
+AdminDAO *--  Admin
+User *-- TimeTable
+User *-- Userclass
+User *-- Gender
+
+}
+@enduml
