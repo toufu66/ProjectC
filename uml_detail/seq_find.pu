@@ -22,7 +22,7 @@ UserDAO -> findServlet--:Userリスト
 findServlet -> Request++:setAttribute(Userリスト)
 Request--
 findServlet -> list.jsp:フォワード
-list.jsp --> 管理者:表示
+list --> 管理者:表示
 
 
 @enduml
