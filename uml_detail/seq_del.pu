@@ -4,16 +4,16 @@ autonumber "#."
 actor 管理者
 database User
 
-管理者 -[#green]> List.jsp:削除リンククリック
-List.jsp ->DelServlet:GETリクエスト
+
+管理者 ->DelServlet:GETリクエスト
 DelServlet -> del.jsp:フォワード
 del.jsp --[#green]> 管理者:確認画面表示
-管理者 -[#green]> del.jsp:削除ボタンクリック
-del.jsp -> DelServlet:POST
+管理者 -[#green]> DelServlet:POSTリクエスト
+
 DelServlet -> UserDAO:UserDAO生成
 DelServlet -> UserDAO:削除
 UserDAO -> User:delete()
-del.jsp-[#blue]> List.jsp:リダイレクト
-List.jsp --[#green]> 管理者:表示
+DelServlet-[#blue]> list:リダイレクト
+list --[#green]> 管理者:表示
 database User
 @enduml
