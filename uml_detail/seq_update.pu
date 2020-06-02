@@ -13,9 +13,10 @@ database ユーザDB
 admin -> detail:情報入力
 detail -> update:doGET
 update --> admin:確認画面表示
-admin ->update:更新ボタンをクリック
-update -> ユーザDB:データ更新
-UserDAO -> update:doPOST
+admin ->update:doPOST
+update -> UserDAO:new()
+UserDAO -> ユーザDB:update()
+
 update -> detail:リダイレクト
 detail --> admin:表示
 @enduml
