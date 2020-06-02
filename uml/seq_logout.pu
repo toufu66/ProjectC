@@ -2,6 +2,7 @@
 
 title ログアウト
 
+
 autonumber "#."
 
 actor 管理者

@@ -8,7 +8,6 @@ participant detail
 participant update
 database ユーザDB
 
-
 admin -> detail:情報入力
 admin -> detail:更新ボタン
 detail -> update:リダイレクト
