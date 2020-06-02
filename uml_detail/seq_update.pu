@@ -1,19 +1,20 @@
 @startuml
-title ユーザの更新確認
+title update
 
 autonumber "#."
 
 actor admin
 participant detail
 participant update
+participant UserDAO
 database ユーザDB
 
 admin -> detail:情報入力
-admin -> detail:更新ボタン
-detail -> update:リダイレクト
+detail -> update:doGET
 update --> admin:確認画面表示
 admin ->update:更新ボタンをクリック
 update -> ユーザDB:データ更新
+UserDAO -> update:doPOST
 update -> detail:リダイレクト
 detail --> admin:表示
 @enduml
