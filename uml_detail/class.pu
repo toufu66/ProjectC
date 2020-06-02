@@ -41,8 +41,7 @@ package データベース{
 		+delete(int uid):void
 		+update(User user):void
 		+fyndByUid(int uid):User
-		+findByDetail(String name,String ruby,Timestamp time):ArryList<User>
-		+findAll():ArryList<User>
+		+findUser(String name,String ruby,Timestamp time):ArryList<User>
 	}
 	class User{
 		-name:String
