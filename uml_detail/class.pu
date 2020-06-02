@@ -13,6 +13,7 @@ package 画面{
 	}
 	class Find{
 		doGet()
+		doPost()
 	}
 	class Delete{
 		doGet()
@@ -58,7 +59,7 @@ package データベース{
 	}
 	class AdminDAO{
 
-		+login(String user,String password)
+		+login(String user,String password):void
 
 	}
 	class TimeTable{
