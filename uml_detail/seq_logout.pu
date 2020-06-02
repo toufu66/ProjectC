@@ -8,10 +8,10 @@ actor admin
 participant logout
 
 participant session
-admin -[#green]> logout:doGET
-logout-[#blue]> session:removeAttribute
-logout-[#blue]> Login_servlet:POST
-Login_servlet-[#green]> admin:表示
+admin -> logout:doGET
+logout-> session:removeAttribute
+logout->login:doGET
+login--> admin:表示
 
 
 @enduml
