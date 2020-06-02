@@ -5,13 +5,16 @@ autonumber "#."
 
 actor 管理者
 participant findServlet
-
+participant find.jsp
 
 database UserDAO
 participant User
 
 
 管理者 -[#green]> findServlet:Getリクエスト
+findServlet -> find.jsp:フォワード
+find.jsp --> 管理者:表示
+管理者 -[#green]> findServlet:Postリクエスト
 findServlet -> UserDAO**:new UserDAO()
 findServlet -> UserDAO++:findUser
 UserDAO -> User**:リストを生成
