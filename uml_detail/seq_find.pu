@@ -4,15 +4,22 @@ title ユーザの検索
 autonumber "#."
 
 actor 管理者
-participant 検索画面
-participant 検索結果一覧
-database ユーザDB
+participant findServlet
 
 
-管理者 -[#green]> 検索画面:検索フォームに入力
-検索画面 -[#blue]> 検索結果一覧:遷移
-検索結果一覧 -> ユーザDB:データ検索
-ユーザDB --> 検索結果一覧:ユーザ情報
+database UserDAO
+participant User
 
-検索結果一覧 --[#green]> 管理者:表示
+
+管理者 -[#green]> findServlet:Getリクエスト
+findServlet -> UserDAO**:new UserDAO()
+findServlet -> UserDAO++:findUser
+UserDAO -> User**:リストを生成
+UserDAO -> findServlet--:Userリスト
+findServlet -> Request++:setAttribute(Userリスト)
+Request--
+findServlet -> list.jsp:フォワード
+list.jsp --> 管理者:表示
+
+
 @enduml
