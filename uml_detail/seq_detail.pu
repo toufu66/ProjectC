@@ -4,20 +4,20 @@ title ユーザの詳細
 autonumber "#."
 
 actor 管理者
-participant List
+participant List.jsp
 participant DetailServlet
 participant detail.jsp
 participant UserDAO
 database User
 
-管理者 -[#green]> List:ユーザネームをクリック
-List -> DetailServlet:GETリクエスト
+管理者 -[#green]> List.jsp:ユーザネームをクリック
+List.jsp -> DetailServlet:GETリクエスト
 DetailServlet -> UserDAO :UserDAO生成
 DetailServlet -> UserDAO :検索
 UserDAO -> User:findByUid()
 UserDAO --> DetailServlet:ユーザ情報
 DetailServlet -> detail.jsp:フォワード
-List -[#blue]> detail.jsp:遷移
+List.jsp -[#blue]> detail.jsp:リダイレクト
 
 
 detail.jsp --[#green]> 管理者:ユーザ詳細表示
