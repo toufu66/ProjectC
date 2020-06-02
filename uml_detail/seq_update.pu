@@ -14,7 +14,7 @@ admin -> detail:情報入力
 detail -> update:doGET
 update --> admin:確認画面表示
 admin ->update:doPOST
-update -> UserDAO:new()
+update -> UserDAO:new UserDAO()
 UserDAO -> ユーザDB:update()
 
 update -> detail:リダイレクト
