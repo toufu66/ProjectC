@@ -3,31 +3,33 @@ left to right direction
 rectangle 会員管理システム{
 package 画面{
 	class Login{
-
+		+doPost()
 	}
 	class Top{
-
+		+doGet()
 	}
-	class UserList{
-
+	class List{
+		oGet()
 	}
-	class UserFind{
-
+	class Find{
+		doGet()
 	}
-	class UserDelete{
-
+	class Delete{
+		doGet()
+		doPost()
 	}
-	class UserInsert{
-
+	class Insert{
+		doGet()
 	}
-	class UserUpdate{
-
+	class Update{
+		doGet()
+		doPost()
 	}
-	class UserDetail{
-
+	class Detail{
+		doGet()
 	}
 	class Logout{
-
+		doGet()
 	}
 
 
@@ -37,6 +39,7 @@ package データベース{
 	class UserDAO{
 		+insert(User user):void
 		+delete(int uid):void
+		+update(User user):void
 		+fyndByUid(int uid):User
 		+findByDetail(String name,String ruby,Timestamp time):ArryList<User>
 		+findAll():ArryList<User>
@@ -80,12 +83,12 @@ package データベース{
 
 Login ..> AdminDAO
 
-UserList ..> UserDAO
-UserInsert ..> UserDAO
-UserUpdate ..> UserDAO
-UserDelete ..> UserDAO
-UserFind ..> UserDAO
-UserDetail ..>UserDAO
+List ..> UserDAO
+Insert ..> UserDAO
+Update ..> UserDAO
+Delete ..> UserDAO
+Find ..> UserDAO
+Detail ..>UserDAO
 UserDAO *--  User
 AdminDAO *--  Admin
 User *-- TimeTable
