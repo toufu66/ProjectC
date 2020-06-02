@@ -11,10 +11,10 @@ database UserDAO
 participant User
 
 
-管理者 -[#green]> findServlet:Getリクエスト
+管理者 -> findServlet:Getリクエスト
 findServlet -> find.jsp:フォワード
 find.jsp --> 管理者:表示
-管理者 -[#green]> findServlet:Postリクエスト
+管理者 -> findServlet:Postリクエスト
 findServlet -> UserDAO**:new UserDAO()
 findServlet -> UserDAO++:findUser
 UserDAO -> User**:リストを生成
