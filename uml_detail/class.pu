@@ -39,7 +39,7 @@ package データベース{
 		+delete(int uid):void
 		+fyndByUid(int uid):User
 		+findByDetail(String name,String ruby,Timestamp time):ArryList<User>
-		+findByAll():ArryList<User>
+		+findAll():ArryList<User>
 	}
 	class User{
 		-name:String
@@ -51,7 +51,7 @@ package データベース{
 		-class:int
 	}
 	class Admin{
-		-user:String
+		-adminId:String
 		-password:String
 	}
 	class AdminDAO{
