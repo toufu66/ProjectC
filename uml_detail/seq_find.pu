@@ -20,10 +20,9 @@ findServlet -> UserDAO++:findUser()
 UserDAO -> User**:リストを生成
 UserDAO -> findServlet--:Userリスト
 findServlet -> Request++:setAttribute(Userリスト)
-findServlet -> list:リダイレクト
-list -> Request:getAttribute(Userリスト)
+findServlet -> list.jsp:フォワード
 Request--
-list --> 管理者:表示
+list.jsp --> 管理者:表示
 
 
 @enduml
