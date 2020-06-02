@@ -14,6 +14,6 @@ top->list:doGet
 list->UserDAO:new UserDAO()
 UserDAO->UserDB:ArrayList<User> 生成
 UserDAO-->list:doGet
-list-->管理者:管理者
+list-->管理者:表示
 
 @enduml
