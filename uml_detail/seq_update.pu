@@ -1,0 +1,20 @@
+@startuml
+title ユーザの更新確認
+
+autonumber "#."
+
+actor 管理者
+participant ユーザ詳細画面
+participant 更新確認画面
+database ユーザDB
+
+
+管理者 -[#green]> ユーザ詳細画面:情報入力
+管理者 -[#green]> ユーザ詳細画面:更新ボタン
+ユーザ詳細画面 -[#blue]> 更新確認画面:遷移
+更新確認画面 --[#green]> 管理者:確認
+管理者 -[#green]>更新確認画面:確認ボタン
+更新確認画面 -> ユーザDB:データ更新
+更新確認画面 -[#blue]> ユーザ詳細画面:遷移
+ユーザ詳細画面 --[#green]> 管理者:表示
+@enduml
