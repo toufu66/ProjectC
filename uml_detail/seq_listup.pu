@@ -1,0 +1,20 @@
+@startuml
+title ユーザの一覧表示
+
+autonumber "#."
+
+actor 管理者
+participant トップページ
+participant ユーザ一覧画面
+database ユーザDB
+
+
+
+管理者 -[#green]> トップページ:一覧表示ボタン
+トップページ -[#blue]> ユーザ一覧画面:遷移
+ユーザ一覧画面 -> ユーザDB:ユーザ検索
+ユーザDB --> ユーザ一覧画面:一覧生成
+
+
+ユーザ一覧画面 --[#green]> 管理者:表示
+@enduml
