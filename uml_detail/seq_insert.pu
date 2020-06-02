@@ -1,0 +1,17 @@
+@startuml
+title ユーザの追加
+
+autonumber "#."
+
+actor 管理者
+participant ユーザ一覧画面
+participant 追加画面
+database ユーザDB
+
+
+管理者 -[#green]> ユーザ一覧画面:追加ボタン
+ユーザ一覧画面 -[#blue]> 追加画面:遷移
+追加画面 -> ユーザDB:ユーザ追加
+追加画面 -[#blue]> ユーザ一覧画面:遷移
+ユーザ一覧画面 --[#green]> 管理者:表示
+@enduml
