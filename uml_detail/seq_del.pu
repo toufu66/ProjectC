@@ -1,5 +1,6 @@
 @startuml
 title 会員削除 /delete()
+autonumber "#."
 actor 管理者
 database User
 
