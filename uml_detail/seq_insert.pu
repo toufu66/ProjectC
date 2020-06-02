@@ -18,7 +18,7 @@ insertServlet -> UserDAO**:new UserDAO()
 insertServlet -> UserDAO++:Userデータ
 UserDAO -> User**:データベースに追加
 UserDAO--
-insertServlet -> find:リダイレクト
-find --> 管理者:表示
+insertServlet -> list:リダイレクト
+list --> 管理者:表示
 
 @enduml
