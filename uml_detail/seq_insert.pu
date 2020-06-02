@@ -6,8 +6,8 @@ autonumber "#."
 actor 管理者
 participant insertServlet
 participant insert.jsp
-database UserDAO
-participant User
+participant UserDAO
+database User
 
 
 管理者 -> insertServlet:Getリクエスト
@@ -15,7 +15,7 @@ insertServlet -> insert.jsp:フォワード
 insert.jsp --> 管理者:表示
 管理者 -> insertServlet:Postリクエスト
 insertServlet -> UserDAO**:new UserDAO()
-insertServlet -> UserDAO++:Userデータ
+insertServlet -> UserDAO++:Userデータ生成
 UserDAO -> User**:データベースに追加
 UserDAO--
 insertServlet -> list:リダイレクト
