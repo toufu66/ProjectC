@@ -21,6 +21,7 @@ package 画面{
 	}
 	class Insert{
 		doGet()
+		doPost()
 	}
 	class Update{
 		doGet()
