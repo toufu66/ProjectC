@@ -1,0 +1,20 @@
+@startuml
+
+title ログアウト
+
+autonumber "#."
+
+actor 管理者
+participant ログインページ
+participant ヘッダーログアウト
+participant 確認ページ
+participant ログインセッション
+
+管理者 -[#green]> ヘッダーログアウト:ログアウトボタンを押す
+ヘッダーログアウト-[#blue]> 確認ページ:遷移
+確認ページ --[#green]> 管理者:ログアウト確認の表示
+管理者 -[#green]> 確認ページ:ログアウト「はい」を押す
+確認ページ-> ログインセッション:ログイン情報を削除
+確認ページ-[#blue]> ログインページ:遷移
+ログインページ -[#green]> 管理者:表示
+@enduml
