@@ -9,6 +9,7 @@ participant update
 participant UserDAO
 database ユーザDB
 
+
 admin -> detail:情報入力
 detail -> update:doGET
 update --> admin:確認画面表示
