@@ -1,0 +1,20 @@
+@startuml
+
+title ログイン
+
+autonumber "#."
+
+actor 管理者
+participant ログインページ
+participant トップページ
+database 管理者DB
+
+管理者 -[#green]> ログインページ:名前とパスワードを入力
+ログインページ -> 管理者DB:名前とパスワード照会
+管理者DB --> ログインページ:データと一致
+ログインページ -[#blue]> トップページ:遷移
+トップページ --[#green]> 管理者 :表示
+
+
+
+@enduml
