@@ -13,7 +13,7 @@ del.jsp -> DelServlet:POST
 DelServlet -> UserDAO:UserDAO生成
 DelServlet -> UserDAO:削除
 UserDAO -> User:delete()
-Del.jsp-[#blue]> List.jsp:遷移
+del.jsp-[#blue]> List.jsp:リダイレクト
 List.jsp --[#green]> 管理者:表示
 database User
 @enduml
