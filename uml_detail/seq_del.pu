@@ -5,15 +5,15 @@ actor 管理者
 database User
 
 
-管理者 ->DelServlet:GETリクエスト
-DelServlet -> del.jsp:フォワード
+管理者 ->Del:GETリクエスト
+Del -> del.jsp:フォワード
 del.jsp --[#green]> 管理者:確認画面表示
-管理者 -[#green]> DelServlet:POSTリクエスト
+管理者 -[#green]> Del:POSTリクエスト
 
-DelServlet -> UserDAO:UserDAO生成
-DelServlet -> UserDAO:削除
+Del -> UserDAO:UserDAO生成
+Del -> UserDAO:削除
 UserDAO -> User:delete()
-DelServlet-[#blue]> list:リダイレクト
+Del-[#blue]> list:リダイレクト
 list --[#green]> 管理者:表示
 database User
 @enduml
