@@ -2,25 +2,25 @@
 title ページ遷移図
 login:ログインページ
 top:トップページ
-kanri : 会員一覧
+list : ユーザ一覧
 del:GET 削除確認\nPOST 削除
 update:GET 更新確認\nPOST 更新
 insert:追加
-klist:会員詳細
+detail:会員詳細
 find:検索
 
 [*]->login
 login->top
-top-->kanri:リンク
+top-->list:リンク
 top-->find:リンク
-kanri-->del:リンク\nid
-kanri-->insert
-kanri-->klist:リンク\nid
+list-->del:リンク\nid
+list-->insert
+list-->detail:リンク\nid
 del-->del:POST\nid
-find-->klist:リンク\nid or name or date
-klist-->del:リンク\nid
+find-->detail:リンク\nid or name or date
+detail-->del:リンク\nid
 
 update-->update:POST\nid\nname\nage\nmail\npass
-klist->update:リンク\nid
+detail->update:リンク\nid
 
 @enduml
