@@ -46,6 +46,7 @@ package データベース{
 		+findUser(String name,String ruby,Timestamp date1,Timestamp date2):ArryList<User>
 	}
 	class User{
+		-uid:int
 		-name:String
 		-gid:int
 		-birthday:Timestamp
