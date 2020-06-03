@@ -1,5 +1,9 @@
 package com.tdn.model;
-
+/**
+ * 管理者のクラス
+ * @author edu04
+ *
+ */
 public class Admin {
 	/**
 	 * 管理者ID
@@ -22,6 +26,10 @@ public class Admin {
 	 */
 	public void setadminId(String adminId) {
 		this.adminId = adminId;
+	}
+	public Admin() {
+		super();
+		// TODO 自動生成されたコンストラクター・スタブ
 	}
 	/**
 	 * 管理者パスワードのゲッター
