@@ -192,7 +192,7 @@ public class UserDAO {
 				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
 
 					//SQL文定義
-					String sql = "select * from res where uid = ?";
+					String sql = "select * from user_table where uid = ?";
 					PreparedStatement stmt = con.prepareStatement(sql);
 					//?にuidをセット
 					stmt.setInt(1, uid);
