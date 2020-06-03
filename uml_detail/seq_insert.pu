@@ -15,8 +15,9 @@ InsertServlet -> insert.jsp:フォワード
 insert.jsp --> 管理者:表示
 管理者 -> InsertServlet:Postリクエスト
 InsertServlet -> UserDAO**:new UserDAO()
-InsertServlet -> UserDAO++:new User()
-UserDAO -> User**:insert()
+InsertServlet -> User**:new User()
+InsertServlet -> UserDAO++:insert()
+UserDAO -> User:追加
 UserDAO--
 InsertServlet -> list:リダイレクト
 list --> 管理者:表示

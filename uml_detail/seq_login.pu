@@ -19,6 +19,8 @@ LoginServlet -> AdminDAO:login()
 AdminDAO -> Admin:リスト照合
 AdminDAO --> LoginServlet:管理人データ
 LoginServlet -> top:リダイレクト
+LoginServlet -> login.jsp:(ログインエラー)エラーメッセージ、フォワード
+login.jsp --> 管理者:(ログインエラー):表示
 top --> 管理者:表示
 
 
