@@ -26,7 +26,7 @@ public class AdminDAO {
 		Admin a=null;
 		try (Connection con = DriverManager.getConnection(URL, USER, PASS);) {
 
-			String sql = "SELECT*FROM admin WHERE adminId=? and password=?";
+			String sql = "SELECT*FROM db_admin WHERE adminId=? and password=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, adminId);
 			stmt.setString(2, password);
