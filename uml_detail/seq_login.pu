@@ -18,9 +18,10 @@ LoginServlet -> AdminDAO:new AdminDAO()
 LoginServlet -> AdminDAO:login()
 AdminDAO -> Admin:リスト照合
 AdminDAO --> LoginServlet:管理人データ
+
 LoginServlet -> top:リダイレクト
 top --> 管理者:表示
 
-
+,
 
 @enduml
