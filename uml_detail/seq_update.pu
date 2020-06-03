@@ -14,7 +14,7 @@ database ユーザDB
 UpdateServlet --> 管理者:確認画面表示
 管理者 ->UpdateServlet:doPOST
 UpdateServlet -> UserDAO:new UserDAO()
-UserDAO -> ユーザDB:UpdateServlet()
+UserDAO -> ユーザDB:update()
 
 UpdateServlet -> detail:リダイレクト
 detail --> 管理者:表示
