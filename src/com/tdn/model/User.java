@@ -52,6 +52,22 @@ public class User {
 	 */
 	public User() {}
 
+
+
+	public User(int uid, String name, int gid, Timestamp birthday, String mail, int point, String password,
+			int uclass) {
+		this.uid = uid;
+		this.name = name;
+		this.gid = gid;
+		this.birthday = birthday;
+		this.mail = mail;
+		this.point = point;
+		this.password = password;
+		this.uclass = uclass;
+	}
+
+
+
 	public int getUid() {
 		return uid;
 	}
