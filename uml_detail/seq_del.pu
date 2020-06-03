@@ -13,7 +13,7 @@ DelServlet.jsp --> 管理者:確認画面表示
 DelServlet -> UserDAO:UserDAO生成
 DelServlet -> UserDAO:削除
 UserDAO -> User:DelServletete()
-DelServlet-> ListServlet:リダイレクト
-ListServlet --> 管理者:表示
+DelServlet-> List:リダイレクト
+List --> 管理者:表示
 database User
 @enduml
