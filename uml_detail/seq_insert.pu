@@ -4,21 +4,21 @@ title ユーザの追加
 autonumber "#."
 
 actor 管理者
-participant insertServlet
+participant InsertServlet
 participant insert.jsp
 participant UserDAO
 database User
 
 
-管理者 -> insertServlet:Getリクエスト
-insertServlet -> insert.jsp:フォワード
+管理者 -> InsertServlet:Getリクエスト
+InsertServlet -> insert.jsp:フォワード
 insert.jsp --> 管理者:表示
-管理者 -> insertServlet:Postリクエスト
-insertServlet -> UserDAO**:new UserDAO()
-insertServlet -> UserDAO++:new User()
+管理者 -> InsertServlet:Postリクエスト
+InsertServlet -> UserDAO**:new UserDAO()
+InsertServlet -> UserDAO++:new User()
 UserDAO -> User**:insert()
 UserDAO--
-insertServlet -> list:リダイレクト
+InsertServlet -> list:リダイレクト
 list --> 管理者:表示
 
 @enduml

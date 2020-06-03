@@ -4,23 +4,23 @@ title ユーザの検索
 autonumber "#."
 
 actor 管理者
-participant findServlet
+participant FindServlet
 participant find.jsp
 
 participant UserDAO
 database User
 
 
-管理者 -> findServlet:Getリクエスト
-findServlet -> find.jsp:フォワード
+管理者 -> FindServlet:Getリクエスト
+FindServlet -> find.jsp:フォワード
 find.jsp --> 管理者:表示
-管理者 -> findServlet:Postリクエスト
-findServlet -> UserDAO**:new UserDAO()
-findServlet -> UserDAO++:findUser()
+管理者 -> FindServlet:Postリクエスト
+FindServlet -> UserDAO**:new UserDAO()
+FindServlet -> UserDAO++:findUser()
 UserDAO -> User**:リストを生成
-UserDAO -> findServlet--:Userリスト
-findServlet -> Request++:setAttribute(Userリスト)
-findServlet -> list.jsp:フォワード
+UserDAO -> FindServlet--:Userリスト
+FindServlet -> Request++:setAttribute(Userリスト)
+FindServlet -> list.jsp:フォワード
 Request--
 list.jsp --> 管理者:表示
 

@@ -17,9 +17,15 @@ login.jsp --> 管理者:表示
 LoginServlet -> adminDAO:new adminDAO()
 LoginServlet -> adminDAO:login()
 adminDAO -> admin:リスト照合
+<<<<<<< HEAD
 adminDAO --> LoginServlet:照合結果
 LoginServlet -> TopServlet:リダイレクト
 TopServlet --[#green]> 管理者:表示
+=======
+adminDAO --> loginServlet:管理人データ
+loginServlet -> top:リダイレクト
+top --[#green]> 管理者:表示
+>>>>>>> branch 'master' of https://github.com/toufu66/ProjectC.git
 
 
 

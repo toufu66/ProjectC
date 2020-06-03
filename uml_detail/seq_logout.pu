@@ -1,16 +1,16 @@
 @startuml
 
-title logout
+title LogoutServlet
 
 autonumber "#."
 
 actor admin
-participant logout
+participant LogoutServlet
 
 participant session
-admin -> logout:doGET
-logout-> session:removeAttribute
-logout->login:doGET
+admin -> LogoutServlet:doGET
+LogoutServlet-> session:removeAttribute
+LogoutServlet->login:リダイレクト
 login--> admin:表示
 
 
