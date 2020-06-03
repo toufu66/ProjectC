@@ -52,24 +52,70 @@ public class User {
 	 */
 	public User() {}
 
+	public int getUid() {
+		return uid;
+	}
 
-	public void setUid() {}
-	public void setName() {}
-	public void setGid() {}
-	public void setBirthday() {}
-	public void setMail() {}
-	public void setPoint() {}
-	public void setPassword() {}
-	public void setUclass() {}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 
-	public int getUid() {}
-	public String  getName() {}
-	public int getGid() {}
-	public Timestamp getBirthday() {}
-	public String getMail() {}
-	public int getPoint() {}
-	public String getPassword() {}
-	public int getUclass() {}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getGid() {
+		return gid;
+	}
+
+	public void setGid(int gid) {
+		this.gid = gid;
+	}
+
+	public Timestamp getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Timestamp birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public int getUclass() {
+		return uclass;
+	}
+
+	public void setUclass(int uclass) {
+		this.uclass = uclass;
+	}
+
 
 
 }
