@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		String error=(String)session.getAttribute("error");
+
 		if(error !=null) {
 			request.setAttribute("mes", error);
 			session.removeAttribute(error);
@@ -62,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		else {
 			HttpSession session=request.getSession();
-			session.setAttribute("mes", "パスワードが違います");
+			session.setAttribute("mes", "IDまたはパスワードが違います");
 			response.sendRedirect("login");
 	}
 	}
