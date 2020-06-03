@@ -4,14 +4,14 @@ title LogoutServlet
 
 autonumber "#."
 
-actor admin
+actor 管理者
 participant LogoutServlet
 
 participant session
-admin -> LogoutServlet:doGET
+管理者 -> LogoutServlet:doGET
 LogoutServlet-> session:removeAttribute
 LogoutServlet->login:リダイレクト
-login--> admin:表示
+login--> 管理者:表示
 
 
 @enduml
