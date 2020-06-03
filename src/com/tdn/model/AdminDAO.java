@@ -35,8 +35,7 @@ public class AdminDAO {
 
 			while (rs.next()) {
 
-				String adminId = rs.getString("adminId");
-				String password =rs.getString("password");
+
 
 				a=new Admin(adminId,password);
 			}
