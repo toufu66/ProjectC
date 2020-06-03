@@ -1,25 +1,23 @@
-package com.tdn;
+package com.tdn.servlet;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
- * Servlet implementation class InsertServlet
+ * Servlet implementation class FindServlet
  */
-@WebServlet("/insert")
-public class InsertServlet extends HttpServlet {
+@WebServlet("/FindServlet")
+public class FindServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertServlet() {
+    public FindServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

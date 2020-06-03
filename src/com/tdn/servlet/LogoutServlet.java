@@ -1,4 +1,4 @@
-package com.tdn;
+package com.tdn.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

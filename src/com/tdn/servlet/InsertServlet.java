@@ -1,4 +1,4 @@
-package com.tdn;
+package com.tdn.servlet;
 
 import java.io.IOException;
 
@@ -8,17 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
- * Servlet implementation class TopServlet
+ * Servlet implementation class InsertServlet
  */
-@WebServlet("/top")
-public class TopServlet extends HttpServlet {
+@WebServlet("/insert")
+public class InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TopServlet() {
+    public InsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
