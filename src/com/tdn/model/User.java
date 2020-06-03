@@ -18,6 +18,11 @@ public class User {
 	private String name;     //user name
 
 	/**
+	 * ふりがな
+	 */
+	private String ruby;     //user ruby
+
+	/**
 	 * 性別 gender id
 	 */
 	private int gid;      //gender id
@@ -54,10 +59,11 @@ public class User {
 
 
 
-	public User(int uid, String name, int gid, Timestamp birthday, String mail, int point, String password,
+	public User(int uid, String name, String ruby,int gid, Timestamp birthday, String mail, int point, String password,
 			int uclass) {
 		this.uid = uid;
 		this.name = name;
+		this.ruby = ruby;
 		this.gid = gid;
 		this.birthday = birthday;
 		this.mail = mail;
@@ -82,6 +88,14 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getRuby() {
+		return ruby;
+	}
+
+	public void setRuby(String ruby) {
+		this.ruby = ruby;
 	}
 
 	public int getGid() {
