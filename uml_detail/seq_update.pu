@@ -3,19 +3,19 @@ title UpdateServlet
 
 autonumber "#."
 
-actor admin
+actor 管理者
 participant detail
 participant UpdateServlet
 participant UserDAO
 database ユーザDB
 
 
-admin -> UpdateServlet:doGET
-UpdateServlet --> admin:確認画面表示
-admin ->UpdateServlet:doPOST
+管理者 -> UpdateServlet:doGET
+UpdateServlet --> 管理者:確認画面表示
+管理者 ->UpdateServlet:doPOST
 UpdateServlet -> UserDAO:new UserDAO()
 UserDAO -> ユーザDB:UpdateServlet()
 
 UpdateServlet -> detail:リダイレクト
-detail --> admin:表示
+detail --> 管理者:表示
 @enduml
