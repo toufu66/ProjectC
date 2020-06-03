@@ -7,9 +7,9 @@ autonumber "#."
 actor 管理者
 participant LogoutServlet
 
-participant session
+participant Session
 管理者 -> LogoutServlet:doGET
-LogoutServlet-> session:removeAttribute
+LogoutServlet-> Session:removeAttribute
 LogoutServlet->login:リダイレクト
 login--> 管理者:表示
 
