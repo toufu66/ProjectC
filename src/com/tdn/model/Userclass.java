@@ -1,8 +1,27 @@
 package com.tdn.model;
-
+/**
+ * 会員のクラス
+ * @author edu04
+ *
+ */
 public class Userclass {
-	private int cid;//会員クラスのID
-	private String uclass;//会員クラス
+	/**
+	 * 会員クラスのID
+	 */
+	private int cid;
+	/**
+	 * 会員クラス
+	 */
+	private String uclass;
+	/**
+	 * 会員クラスのコンストラクタ
+	 * @param cid
+	 * @param uclass
+	 */
+	public Userclass(int cid, String uclass) {
+		this.cid = cid;
+		this.uclass = uclass;
+	}
 	public int getCid() {
 		return cid;
 	}

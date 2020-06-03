@@ -14,6 +14,15 @@ public class Admin {
 	 */
 	private String password;
 	/**
+	 * 管理者のコンストラクタ
+	 * @param adminId
+	 * @param password
+	 */
+	public Admin(String adminId, String password) {
+		this.adminId = adminId;
+		this.password = password;
+	}
+	/**
 	 * 管理者IDのゲッター
 	 * @return 管理者ID取得
 	 */
@@ -26,10 +35,6 @@ public class Admin {
 	 */
 	public void setadminId(String adminId) {
 		this.adminId = adminId;
-	}
-	public Admin() {
-		super();
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 	/**
 	 * 管理者パスワードのゲッター

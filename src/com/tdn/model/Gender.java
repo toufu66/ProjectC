@@ -1,5 +1,9 @@
 package com.tdn.model;
-
+/**
+ * 性別のクラス
+ * @author edu04
+ *
+ */
 public class Gender {
 	/**
 	 * 性別ID
@@ -9,6 +13,15 @@ public class Gender {
 	 * 性別名
 	 */
 	private String gender;
+	/**
+	 * 性別のコンストラクタ
+	 * @param gid
+	 * @param gender
+	 */
+	public Gender(int gid, String gender) {
+		this.gid = gid;
+		this.gender = gender;
+	}
 	public int getGid() {
 		return gid;
 	}
