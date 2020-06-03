@@ -14,7 +14,7 @@ database UserDB
 ListServlet->UserDAO:new UserDAO()
 UserDAO->UserDB:ArrayListServlet<User> 生成
 UserDAO-->ListServlet:Userリスト
-list.jsp -> Request++:setAttribute(Userリスト)
+ListServlet -> Request++:setAttribute(Userリスト)
 ListServlet -> list.jsp:フォワード
 list.jsp-->管理者:表示
 
