@@ -5,21 +5,21 @@ title ログイン
 autonumber "#."
 
 actor 管理者
-participant loginServlet
+participant LoginServlet
 participant login.jsp
 participant adminDAO
 database admin
 
-管理者 -> loginServlet:doGet()
-loginServlet -> login.jsp:フォワード
+管理者 -> LoginServlet:doGet()
+LoginServlet -> login.jsp:フォワード
 login.jsp --> 管理者:表示
-管理者 -> loginServlet:doPost()
-loginServlet -> adminDAO:new adminDAO()
-loginServlet -> adminDAO:login()
+管理者 -> LoginServlet:doPost()
+LoginServlet -> adminDAO:new adminDAO()
+LoginServlet -> adminDAO:login()
 adminDAO -> admin:リスト照合
-adminDAO --> loginServlet:照合結果
-loginServlet -> top:リダイレクト
-top --[#green]> 管理者:表示
+adminDAO --> LoginServlet:照合結果
+LoginServlet -> TopServlet:リダイレクト
+TopServlet --[#green]> 管理者:表示
 
 
 

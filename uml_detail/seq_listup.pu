@@ -4,16 +4,16 @@ title ユーザの一覧表示
 autonumber "#."
 
 actor 管理者
-participant top
-participant list
+participant TopServlet
+participant ListServlet
 participant UserDAO
 database UserDB
 
-管理者->top:doGet
-top->list:doGet
-list->UserDAO:new UserDAO()
-UserDAO->UserDB:ArrayList<User> 生成
-UserDAO-->list:doGet
-list-->管理者:表示
+管理者->TopServlet:doGet
+TopServlet->ListServlet:doGet
+ListServlet->UserDAO:new UserDAO()
+UserDAO->UserDB:ArrayListServlet<User> 生成
+UserDAO-->ListServlet:doGet
+ListServlet-->管理者:表示
 
 @enduml
