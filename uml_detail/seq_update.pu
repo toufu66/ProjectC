@@ -4,19 +4,18 @@ title UpdateServlet
 autonumber "#."
 
 actor admin
-participant DetailServlet
+participant detail
 participant UpdateServlet
 participant UserDAO
 database ユーザDB
 
 
-admin -> DetailServlet:情報入力
-DetailServlet -> UpdateServlet:doGET
+admin -> UpdateServlet:doGET
 UpdateServlet --> admin:確認画面表示
 admin ->UpdateServlet:doPOST
 UpdateServlet -> UserDAO:new UserDAO()
 UserDAO -> ユーザDB:UpdateServlet()
 
-UpdateServlet -> DetailServlet:リダイレクト
-DetailServlet --> admin:表示
+UpdateServlet -> detail:リダイレクト
+detail --> admin:表示
 @enduml
