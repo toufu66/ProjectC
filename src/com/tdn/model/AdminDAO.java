@@ -32,9 +32,9 @@ public class AdminDAO {
 			stmt.setString(2, password);
 
 			ResultSet rs = stmt.executeQuery();
-
 			while (rs.next()) {
 
+				System.out.println("aaaaaaaaaaaaaaaaa");
 
 
 				a=new Admin(adminId,password);
