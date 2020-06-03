@@ -17,7 +17,7 @@ login.jsp --> 管理者:表示
 loginServlet -> adminDAO:new adminDAO()
 loginServlet -> adminDAO:login()
 adminDAO -> admin:リスト照合
-adminDAO --> loginServlet:照合結果
+adminDAO --> loginServlet:管理人データ
 loginServlet -> top:リダイレクト
 top --[#green]> 管理者:表示
 
