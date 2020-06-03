@@ -15,5 +15,6 @@ DelServlet -> UserDAO:delete()
 UserDAO -> User:削除
 DelServlet-> list:リダイレクト
 list --> 管理者:表示
+
 database User
 @enduml
