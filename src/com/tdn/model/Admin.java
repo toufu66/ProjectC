@@ -1,8 +1,8 @@
 package com.tdn.model;
 
 public class Admin {
-	private String adminId;
-	private String password;
+	private String adminId;//管理者ID
+	private String password;//管理者パスワード
 	public String getadminId() {
 		return adminId;
 	}
