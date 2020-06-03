@@ -7,17 +7,17 @@ autonumber "#."
 actor 管理者
 participant LoginServlet
 participant login.jsp
-participant adminDAO
-database admin
+participant AdminDAO
+database Admin
 
 管理者 -> LoginServlet:doGet()
 LoginServlet -> login.jsp:フォワード
 login.jsp --> 管理者:表示
 管理者 -> LoginServlet:doPost()
-LoginServlet -> adminDAO:new adminDAO()
-LoginServlet -> adminDAO:login()
-adminDAO -> admin:リスト照合
-adminDAO --> LoginServlet:管理人データ
+LoginServlet -> AdminDAO:new AdminDAO()
+LoginServlet -> AdminDAO:login()
+AdminDAO -> Admin:リスト照合
+AdminDAO --> LoginServlet:管理人データ
 LoginServlet -> top:リダイレクト
 top --> 管理者:表示
 
