@@ -3,8 +3,14 @@ package com.tdn.model;
 import java.sql.Timestamp;
 
 public class TimeTable {
-	private int uid;//ユーザID
-	private Timestamp date;//利用日
+	/**
+	 * ユーザID
+	 */
+	private int uid;
+	/**
+	 * 利用日
+	 */
+	private Timestamp date;
 	public int getUid() {
 		return uid;
 	}

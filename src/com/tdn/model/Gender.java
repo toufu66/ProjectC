@@ -1,8 +1,14 @@
 package com.tdn.model;
 
 public class Gender {
-	private int gid;//性別のID
-	private String gender;//性別名
+	/**
+	 * 性別ID
+	 */
+	private int gid;
+	/**
+	 * 性別名
+	 */
+	private String gender;
 	public int getGid() {
 		return gid;
 	}
