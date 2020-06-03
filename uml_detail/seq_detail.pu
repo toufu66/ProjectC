@@ -4,19 +4,19 @@ title ユーザの詳細
 autonumber "#."
 
 actor 管理者
-participant Detail
+participant DetailServlet
 participant UserDAO
 participant detail.jsp
 database User
 
 
-管理者 -[#green]> Detail:GETリクエスト
-Detail -> UserDAO :UserDAO生成
-Detail -> UserDAO :findByUid()
+管理者 -[#green]> DetailServlet:GETリクエスト
+DetailServlet -> UserDAO :UserDAO生成
+DetailServlet -> UserDAO :findByUid()
 UserDAO -> User:リスト生成
-UserDAO --> Detail:ユーザリスト
-Detail -> request:setAttribute(Userリスト)
-Detail -> detail.jsp:フォワード
+UserDAO --> DetailServlet:ユーザリスト
+DetailServlet -> request:setAttribute(Userリスト)
+DetailServlet -> detail.jsp:フォワード
 detail.jsp --[#green]> 管理者:ユーザ詳細表示
 
 
