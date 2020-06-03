@@ -6,11 +6,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ *
+ * 管理者DAO
+ *
+ */
 public class AdminDAO {
 	static final String URL = "jdbc:mysql://localhost/aquarium?useSSL=false";
 	static final String USER = "java";
-	static final String PASS = "Pass";
+	static final String PASS = "pass";
 
+/**
+ *
+ * @param adminid 管理者ID
+ * @param password 管理者IDのパスワード
+ * @return IDとパスワードが不一致の場合null.一致の場合、admin情報(Admin型)
+ */
 	public Admin login(String adminid,String password) {
 		Admin a=null;
 		try (Connection con = DriverManager.getConnection(URL, USER, PASS);) {
