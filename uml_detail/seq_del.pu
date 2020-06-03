@@ -6,14 +6,14 @@ database User
 
 
 管理者 ->DelServlet:GETリクエスト
-DelServlet -> DelServlet.jsp:フォワード
-DelServlet.jsp --> 管理者:確認画面表示
+DelServlet -> delete.jsp:フォワード
+delete.jsp --> 管理者:確認画面表示
 管理者 -> DelServlet:POSTリクエスト
 
 DelServlet -> UserDAO:UserDAO生成
-DelServlet -> UserDAO:削除
-UserDAO -> User:DelServletete()
-DelServlet-> ListServlet:リダイレクト
-ListServlet --> 管理者:表示
+DelServlet -> UserDAO:delete()
+UserDAO -> User:削除
+DelServlet-> list:リダイレクト
+list --> 管理者:表示
 database User
 @enduml
