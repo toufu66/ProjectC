@@ -10,14 +10,14 @@ participant detail.jsp
 database User
 
 
-管理者 -[#green]> DetailServlet:GETリクエスト
+管理者 -> DetailServlet:GETリクエスト
 DetailServlet -> UserDAO :UserDAO生成
 DetailServlet -> UserDAO :findByUid()
 UserDAO -> User:リスト生成
 UserDAO --> DetailServlet:ユーザリスト
 DetailServlet -> request:setAttribute(Userリスト)
 DetailServlet -> detail.jsp:フォワード
-detail.jsp --[#green]> 管理者:ユーザ詳細表示
+detail.jsp --> 管理者:ユーザ詳細表示
 
 
 @enduml
