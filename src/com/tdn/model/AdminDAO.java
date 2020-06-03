@@ -18,27 +18,27 @@ public class AdminDAO {
 
 /**
  *
- * @param adminid 管理者ID
+ * @param adminId 管理者ID
  * @param password 管理者IDのパスワード
  * @return IDとパスワードが不一致の場合null.一致の場合、admin情報(Admin型)
  */
-	public Admin login(String adminid,String password) {
+	public Admin login(String adminId,String password) {
 		Admin a=null;
 		try (Connection con = DriverManager.getConnection(URL, USER, PASS);) {
 
-			String sql = "SELECT*FROM admin WHERE adminid=? and password=?";
+			String sql = "SELECT*FROM admin WHERE adminId=? and password=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, adminid);
+			stmt.setString(1, adminId);
 			stmt.setString(2, password);
 
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 
-				String adminid = rs.getString("adminid");
+				String adminId = rs.getString("adminId");
 				String password =rs.getString("password");
 
-				a=new Admin(adminid,password);
+				a=new Admin(adminId,password);
 			}
 
 			stmt.close();

@@ -18,7 +18,7 @@ public class Admin {
 	}
 	/**
 	 * 管理者IDのセッター
-	 * @param 管理者IDの設置
+	 * @param adminId 管理者IDの設置
 	 */
 	public void setadminId(String adminId) {
 		this.adminId = adminId;
@@ -32,7 +32,7 @@ public class Admin {
 	}
 	/**
 	 * 管理者パスワードのセッター
-	 * @param 管理者パスワードの設置
+	 * @param password 管理者パスワードの設置
 	 */
 	public void setPassword(String password) {
 		this.password = password;
