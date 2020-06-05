@@ -21,7 +21,7 @@
 
 <input type="submit" value="削除">
 
-
+<jsp:include page = "./header.jsp" />
 
 </body>
 </html>
