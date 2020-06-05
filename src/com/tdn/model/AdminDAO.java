@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class AdminDAO {
 	static final String URL = "jdbc:mysql://localhost/aquarium?useSSL=false";
 	static final String USER = "java";
-	static final String PASS = "password";
+	static final String PASS = "pass";
 
 /**
  *
