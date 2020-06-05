@@ -216,6 +216,7 @@ public class UserDAO {
 						String password = rs.getString("password");
 						int uClass = rs.getInt("uclass");
 						//User情報を生成
+						System.out.print( ""+uid+name+ruby+gid+birthday+mail+point+password+uClass);
 						u = new User(uid,name,ruby,gid,birthday,mail,point,password,uClass);
 					}
 

@@ -34,8 +34,6 @@ public class AdminDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 
-				System.out.println("aaaaaaaaaaaaaaaaa");
-
 
 				a=new Admin(adminId,password);
 			}
