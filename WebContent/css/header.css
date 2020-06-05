@@ -1,8 +1,22 @@
-header{
-	border-bottom:5px dotted #d7301d;
-	padding:30px;
+* {
+  margin:0; padding:0;
 }
-.header_box,.main_box,.footer_box{
-	width:1024px;
-	margin:0 auto;
+header {
+  width: 100%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+header .headline{
+  font-size: 32px;
+}
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
 }
