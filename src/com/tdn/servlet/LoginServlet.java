@@ -37,8 +37,7 @@ public class LoginServlet extends HttpServlet {
 
 		if(error !=null) {
 			request.setAttribute("mes", error);
-			session.removeAttribute(error);
-
+			session.removeAttribute("error");
 		}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
@@ -49,21 +48,25 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession();
+		String error=(String)session.getAttribute("error");
 		String name=request.getParameter("adminId");
 		String pass=request.getParameter("password");
+
+
 
 		AdminDAO dao=new AdminDAO();
 		Admin a =dao.login(name, pass);
 
 		if(a !=null) {
-			HttpSession session=request.getSession();
+
 			session.setAttribute("admin", a);
+
 
 			response.sendRedirect("top");
 		}
 		else {
-			HttpSession session=request.getSession();
-			session.setAttribute("mes", "IDまたはパスワードが違います");
+			session.setAttribute("error", "IDまたはパスワードが違います");
 			response.sendRedirect("login");
 	}
 	}

@@ -1,0 +1,8 @@
+header{
+	border-bottom:5px dotted #d7301d;
+	padding:30px;
+}
+.header_box,.main_box,.footer_box{
+	width:1024px;
+	margin:0 auto;
+}
