@@ -2,11 +2,15 @@ package com.tdn.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.tdn.model.User;
+import com.tdn.model.UserDAO;
 
 
 /**
@@ -28,16 +32,37 @@ public class DeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		String uidStr=request.getParameter("uid");
+		int uid=Integer.parseInt(uidStr);
+
+
+		if(uidStr==null) {
+			response.sendRedirect("list");
+			return;
+		}
+
+		UserDAO dao =new UserDAO();
+		User u =dao.findByUid(uid);
+		request.setAttribute("User",u);
+
+		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/delete.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String uidStr=request.getParameter("uid");
+		int uid=Integer.parseInt(uidStr);
+
+		UserDAO dao =new UserDAO();
+
+		dao.delete(uid);
+
+		response.sendRedirect("list");
 	}
 
 }
