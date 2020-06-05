@@ -8,7 +8,11 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-
+/**
+ *
+ * ユーザDAO
+ *
+ */
 public class UserDAO {
 	// 定数宣言
 			static final String URL =  "jdbc:mysql://localhost/aquarium?useSSL=false";
@@ -138,18 +142,18 @@ public class UserDAO {
 					}
 
 					//date1とdate2に日付が入力されている(区間検索)
-					if(date1.equals("") == false && date2.equals("") == false) {
+					if(date1 != null && date2 != null) {
 						sql+="and date BETWEEN \"?\" and \"?\"";
 						stmt.setTimestamp(2, date1);
 						stmt.setTimestamp(3, date2);
 					}
 					//date1にのみに日付が入力されている(date1以降を検索)
-					else if(date1.equals("") == false) {
+					else if(date1 != null) {
 						sql+="and date >= \"?\" ";
 						stmt.setTimestamp(2, date1);
 					}
 					//date2にのみに日付が入力されている(date2以前を検索)
-					else if(date2.equals("") == false) {
+					else if(date2 != null) {
 						sql+="and date <= \"?\" ";
 						stmt.setTimestamp(2, date2);
 					}
