@@ -119,23 +119,24 @@ public class UserDAO {
 			 */
 			//findUser
  			public ArrayList<User> findUser(String name,String ruby,Timestamp date1,Timestamp date2) {
-				ArrayList<User> ulist = null;
+				ArrayList<User> ulist = new ArrayList<>();
 				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
 
 					//SQL文を格納する変数を用意
-					String sql = "";
+					String sql = "select * from user_table";
 					PreparedStatement stmt = con.prepareStatement(sql);
 
 					//ふりがなが入力されているかどうか判定
 					if (ruby.equals("")) {
 						//SQL文定義(名前)
-						sql += "select * from user_table innner join date_table where ruby LIKE \"%?%\" ";
-
+						//sql += "select * from user_table innner join date_table where name LIKE \"%?%\" ";
+						sql += "where name LIKE \"%?%\" ";
 						//1個目の?にnameをセット
 						stmt.setString(1,name);
 					}else {
 						//SQL文定義(ふりがな)
-						sql += "select * from user_table innner join date_table where name LIKE \"%?%\" ";
+						//sql += "select * from user_table innner join date_table where ruby LIKE \"%?%\" ";
+						sql += "where ruby LIKE \"%?\"% ";
 
 						//1個目の?にrubyをセット
 						stmt.setString(1, ruby);
