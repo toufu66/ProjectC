@@ -16,13 +16,13 @@
 			<th>名前</th>
 			<th>ふりがな</th>
 		</tr>
-		<c:forEach var="list" items="${list}">
+		<c:forEach var="ulist" items="${list}">
 
 			<tr>
-				<td>${list.uid }</td>
-				<td>${list.name }</td>
-				<td>${list.ruby }</td>
-				<td><a href="delete?uid=${list.uid }">削除</a></td>
+				<td>${ulist.uid }</td>
+				<td>${ulist.name }</td>
+				<td>${ulist.ruby }</td>
+				<td><a href="delete?uid=${ulist.uid }">削除</a></td>
 			</tr>
 
 

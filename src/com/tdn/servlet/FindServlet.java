@@ -49,6 +49,7 @@ public class FindServlet extends HttpServlet {
 			UserDAO udao = new UserDAO();
 			String searchStr = request.getParameter("search");
 			int searchType = Integer.parseInt(searchStr);
+
 			if(searchType == 0) {
 				String uidStr = request.getParameter("uid");
 				int uid = Integer.parseInt(uidStr);

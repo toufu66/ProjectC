@@ -191,7 +191,7 @@ public class UserDAO {
 			 * @param uid ユーザID
 			 * @return 検索結果がなければnull,検索結果があれば検索したUser情報(User型)を返す
 			 */
-			//findByNumber
+			//findByUid
 			public User findByUid(int uid) {
 				User u = null;
 				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){

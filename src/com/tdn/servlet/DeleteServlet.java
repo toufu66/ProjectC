@@ -44,7 +44,7 @@ public class DeleteServlet extends HttpServlet {
 
 		UserDAO dao =new UserDAO();
 		User u =dao.findByUid(uid);
-		request.setAttribute("User",u);
+		request.setAttribute("user",u);
 
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/delete.jsp");
 		dispatcher.forward(request, response);
