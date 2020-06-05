@@ -22,7 +22,7 @@
 				<td>${list.uid }</td>
 				<td>${list.name }</td>
 				<td>${list.ruby }</td>
-				<td><a href="delete?sid=${list.uid }">削除</a></td>
+				<td><a href="delete?uid=${list.uid }">削除</a></td>
 			</tr>
 
 
