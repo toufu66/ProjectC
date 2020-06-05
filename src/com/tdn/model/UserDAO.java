@@ -168,11 +168,11 @@ public class UserDAO {
 						int uid = rs.getInt("uid");
 						String userName = rs.getString("name");
 						String userRuby = rs.getString("ruby");
-						int gid = rs.getInt("gid");
+						int gid = rs.getInt("gender");
 						Timestamp birthday = rs.getTimestamp("birthday");
 						String mail = rs.getString("mail");
 						int point = rs.getInt("point");
-						String password = rs.getString("password");
+						String password = rs.getString("pass");
 						int uClass = rs.getInt("uclass");
 						//User情報を生成
 						User u = new User(uid,userName,userRuby,gid,birthday,mail,point,password,uClass);
@@ -193,9 +193,10 @@ public class UserDAO {
 			 */
 			//findByUid
 			public User findByUid(int uid) {
-				User u = null;
-				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
 
+				User u = null;
+
+				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
 					//SQL文定義
 					String sql = "select * from user_table where uid = ?";
 					PreparedStatement stmt = con.prepareStatement(sql);
@@ -209,11 +210,11 @@ public class UserDAO {
 						//取り出した情報からデータを取得
 						String name = rs.getString("name");
 						String ruby = rs.getString("ruby");
-						int gid = rs.getInt("gid");
+						int gid = rs.getInt("gender");
 						Timestamp birthday = rs.getTimestamp("birthday");
 						String mail = rs.getString("mail");
 						int point = rs.getInt("point");
-						String password = rs.getString("password");
+						String password = rs.getString("pass");
 						int uClass = rs.getInt("uclass");
 						//User情報を生成
 						System.out.print( ""+uid+name+ruby+gid+birthday+mail+point+password+uClass);
