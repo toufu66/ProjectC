@@ -39,7 +39,6 @@ public class DetailServlet extends HttpServlet {
 		UserDAO udao =new UserDAO();
 		User u =udao.findByUid(uid);
 
-
 		request.setAttribute("user",u);
 
 
