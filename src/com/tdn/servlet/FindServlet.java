@@ -47,25 +47,34 @@ public class FindServlet extends HttpServlet {
 
 		try {
 			UserDAO udao = new UserDAO();
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-			String name = request.getParameter("name");
-			String ruby = request.getParameter("ruby");
-			String date1Str = request.getParameter("date1");
-			String date2Str = request.getParameter("date2");
-			Timestamp date1 = null;
-			Timestamp date2 = null;
+			String searchStr = request.getParameter("search");
+			int searchType = Integer.parseInt(searchStr);
+			if(searchType == 0) {
+				String uidStr = request.getParameter("uid");
+				int uid = Integer.parseInt(uidStr);
+				User user = udao.findByUid(uid);
+				request.setAttribute("list", user);
+			}else {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				String name = request.getParameter("name");
+				String ruby = request.getParameter("ruby");
+				String date1Str = request.getParameter("date1");
+				String date2Str = request.getParameter("date2");
+				Timestamp date1 = null;
+				Timestamp date2 = null;
 
 
-			if(date1Str.equals("") != true) {
-				date1 = new Timestamp(sdf.parse(date1Str).getTime());
+				if(date1Str.equals("") != true) {
+					date1 = new Timestamp(sdf.parse(date1Str).getTime());
+				}
+				if(date1Str.equals("") != true) {
+					date2 = new Timestamp(sdf.parse(date2Str).getTime());
+				}
+
+					ArrayList<User> userList = udao.findUser(name,ruby,date1,date2);
+					request.setAttribute("list", userList);
 			}
-			if(date1Str.equals("") != true) {
-				date2 = new Timestamp(sdf.parse(date2Str).getTime());
-			}
 
-			ArrayList<User> userList = udao.findUser(name,ruby,date1,date2);
-
-			request.setAttribute("list", userList);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
 			dispatcher.forward(request, response);
