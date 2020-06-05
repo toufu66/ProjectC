@@ -37,8 +37,7 @@ public class LoginServlet extends HttpServlet {
 
 		if(error !=null) {
 			request.setAttribute("mes", error);
-			session.removeAttribute(error);
-
+			session.removeAttribute("error");
 		}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
@@ -62,13 +61,12 @@ public class LoginServlet extends HttpServlet {
 		if(a !=null) {
 
 			session.setAttribute("admin", a);
-			request.setAttribute("mes", error);
-			session.removeAttribute(error);
+
 
 			response.sendRedirect("top");
 		}
 		else {
-			session.setAttribute("mes", "IDまたはパスワードが違います");
+			session.setAttribute("error", "IDまたはパスワードが違います");
 			response.sendRedirect("login");
 	}
 	}
