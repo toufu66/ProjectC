@@ -2,6 +2,8 @@ package com.tdn.servlet;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,9 +53,15 @@ public class InsertServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 //		String passconfStr = request.getParameter("passconf");
 		String gidStr = request.getParameter("gender");
-		String uclassStr = request.getParameter("class");
+		String uclassStr = request.getParameter("uclass");
 		String birthdayStr = request.getParameter("birthday");
-		Timestamp birthday = Timestamp.valueOf(birthdayStr);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Timestamp birthday = null;
+		try {
+			birthday = new Timestamp(sdf.parse(birthdayStr).getTime());
+		} catch (ParseException e) {
+			System.out.println("Birthdayエラー" + e.getMessage());
+		}
 
 		int gid =Integer.parseInt(gidStr);
 		int uclass =Integer.parseInt(uclassStr);
