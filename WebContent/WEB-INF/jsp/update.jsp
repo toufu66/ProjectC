@@ -8,13 +8,13 @@
 </head>
 <body>
 <h1>変更</h1>
-<p>${name }</p>
-<p>${ruby }</p>
-<p>${gid }</p>
-<p>${birthday }</p>
-<p>${mail }</p>
-<p>${point }</p>
-<p>${uclass }</p>
+<p>名前：${name }</p>
+<p>ふりがな：${ruby }</p>
+<p>性別：${gid }</p>
+<p>誕生日：${birthday }</p>
+<p>メールアドレス：${mail }</p>
+<p>所有ポイント：${point }</p>
+<p>区分：${uclass }</p>
 
 <form action="update"method="post">
 
