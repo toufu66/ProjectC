@@ -28,7 +28,7 @@
 <input type="hidden" name="password" value="${password }">
 <input type="hidden"name="uclass" value="${uclass }">
 
-更新してもよろしいですか？
+<p>更新してもよろしいですか？</p>
 
 <input type="submit" value="はい">
 
