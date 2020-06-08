@@ -7,7 +7,7 @@
 <title>削除の確認</title>
 </head>
 <body>
-
+<jsp:include page = "./header.jsp" />
 <h1>削除の確認</h1>
 
 
@@ -16,12 +16,12 @@
 <p>ユーザID:${user.uid }</p>
 
 
-<form action="del" method="post">
+<form action="delete" method="post">
 <input type="hidden" name="uid" value="${user.uid }">
 
 <input type="submit" value="削除">
 
-<jsp:include page = "./header.jsp" />
+</form>
 
 </body>
 </html>
