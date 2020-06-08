@@ -1,6 +1,7 @@
 package com.tdn.servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
@@ -43,7 +44,7 @@ public class UpdateServlet extends HttpServlet {
 		String uclassStr =request.getParameter("uclass");
 		int uclass =Integer.parseInt(uclassStr);
 		String birthdayStr =request.getParameter("birthday");
-		Timestamp birthday = Timestamp.valueOf(birthdayStr);
+		Date birthday = Date.valueOf(birthdayStr);
 		String mail =request.getParameter("mail");
 		String pointStr =request.getParameter("point");
 		int point =Integer.parseInt(pointStr);
