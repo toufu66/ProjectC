@@ -2,7 +2,6 @@ package com.tdn.servlet;
 
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -59,6 +58,7 @@ public class FindServlet extends HttpServlet {
 				//uidを取得
 				String uidStr = request.getParameter("uid");
 				int uid = Integer.parseInt(uidStr);
+				//詳細ページへリダイレクト
 				String RedirectUrl = "detail?uid="+uid;
 				response.sendRedirect(RedirectUrl);
 
@@ -66,7 +66,8 @@ public class FindServlet extends HttpServlet {
 			}else {
 
 				//日付定義
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				//データ取得
 				String name = request.getParameter("name");
 				String ruby = request.getParameter("ruby");
 				String date1Str = request.getParameter("date1");
@@ -74,23 +75,23 @@ public class FindServlet extends HttpServlet {
 				Timestamp date1 = null;
 				Timestamp date2 = null;
 
-
-				if(date1Str.equals("") != true) {
-					date1 = new Timestamp(sdf.parse(date1Str).getTime());
-				}
-				if(date1Str.equals("") != true) {
-					date2 = new Timestamp(sdf.parse(date2Str).getTime());
-				}
+//
+//				if(date1Str.equals("") != true) {
+//					date1 = new Timestamp(sdf.parse(date1Str).getTime());
+//				}
+//				if(date1Str.equals("") != true) {
+//					date2 = new Timestamp(sdf.parse(date2Str).getTime());
+//				}
 
 					ArrayList<User> userList = udao.findUser(name,ruby,date1,date2);
 					request.setAttribute("list", userList);
+					//list.jspにフォワード
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+					dispatcher.forward(request, response);
 			}
 
-			//list.jspにフォワード
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list2.jsp");
-			//dispatcher.forward(request, response);
 
-			}catch(NumberFormatException | ParseException e){
+			}catch(NumberFormatException e){
 				request.setAttribute("ferrormasg", e.getMessage());
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/find.jsp");
