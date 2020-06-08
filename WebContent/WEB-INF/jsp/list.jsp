@@ -12,6 +12,15 @@
 <jsp:include page = "./header.jsp" />
 	<h1>ユーザ一覧</h1>
 <a href="insert?uid=${ulist.uid }">追加</a>
+	<c:if test="${date1  != null and date2 != null}">
+	<h2>${date1 }～${date2 }の入館履歴一覧</h2>
+	</c:if>
+	<c:if test="${date1  == null and date2 != null}">
+	<h2>${date2 }以前の入館履歴一覧</h2>
+	</c:if>
+	<c:if test="${date1  != null and date2 == null}">
+	<h2>${date1 }以降の入館履歴一覧</h2>
+	</c:if>
 	<table>
 		<tr>
 			<th>ユーザID</th>
