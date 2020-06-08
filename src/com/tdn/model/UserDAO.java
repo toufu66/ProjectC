@@ -118,7 +118,7 @@ public class UserDAO {
 			 * @return 検索結果がなければnull,検索結果があれば検索したUserリスト(ArrayList<User>型)を返す
 			 */
 			//findUser
- 			public ArrayList<User> findUser(String name,String ruby,Timestamp date1,Timestamp date2) {
+ 			public ArrayList<User> findUser(String name,String ruby,String date1,String date2) {
 				ArrayList<User> ulist = new ArrayList<>();
 				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
 
@@ -127,39 +127,88 @@ public class UserDAO {
 					PreparedStatement stmt = con.prepareStatement(sql);
 
 					//ふりがなが入力されているかどうか判定
+
+					//名前検索
 					if (ruby.equals("") && !name.equals("")) {
-						//SQL文定義(名前)
-						//sql += "select * from user_table innner join date_table where name LIKE \"%?%\" ";
-						sql = "select * from user_table where name LIKE ? ";
-						//1個目の?にnameをセット
-						stmt = con.prepareStatement(sql);
-						stmt.setString(1,"%"+name+"%");
+						//date1とdate2に日付が入力されている(区間検索)
+						if(date1 != null && date2 != null) {
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where name LIKE ? and date BETWEEN ? and ?";
+							stmt = con.prepareStatement(sql);
+							//日付定義
+							stmt.setString(1,"%"+name+"%");
+							stmt.setString(2, date1);
+							stmt.setString(3, date2);
+						}else if(date1 != null){
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where name LIKE ? and date >= ? ";
+							stmt = con.prepareStatement(sql);
+							//日付定義
+							stmt.setString(1,"%"+name+"%");
+							stmt.setString(2, date1);
+						}else if(date2 != null){
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where name LIKE ? and date <= ? ";
+							stmt = con.prepareStatement(sql);
+							//日付定義
+							stmt.setString(1,"%"+name+"%");
+							stmt.setString(2, date2);
+						}else {
+							//SQL文定義(名前)
+							sql += " where name LIKE ? ";
+							//1個目の?にnameをセット
+							stmt = con.prepareStatement(sql);
+							stmt.setString(1,"%"+name+"%");
+						}
+
+					//フリガナ検索
 					}else if(!ruby.equals("")){
-						//SQL文定義(ふりがな)
-						//sql += "select * from user_table innner join date_table where ruby LIKE \"%?%\" ";
-						sql = "select * from user_table where ruby LIKE ? ";
-						//1個目の?にrubyをセット
-						stmt = con.prepareStatement(sql);
-						stmt.setString(1, "%"+ruby+"%");
+						//date1とdate2に日付が入力されている(区間検索)
+						if(date1 != null && date2 != null) {
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where ruby LIKE ? and date BETWEEN ? and ?";
+							stmt = con.prepareStatement(sql);
+							//日付定義
+							stmt.setString(1,"%"+ruby+"%");
+							stmt.setString(2, date1);
+							stmt.setString(3, date2);
+						}else if(date1 != null){
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where ruby LIKE ? and date >= ? ";
+							stmt = con.prepareStatement(sql);
+							//日付定義
+							stmt.setString(1,"%"+ruby+"%");
+							stmt.setString(2, date1);
+						}else if(date2 != null){
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where ruby LIKE ? and date <= ? ";
+							stmt = con.prepareStatement(sql);
+							//日付定義
+							stmt.setString(1,"%"+ruby+"%");
+							stmt.setString(2, date2);
+						}else {
+							//SQL文定義(ふりがな)
+							sql += " where ruby LIKE ? ";
+							//1個目の?にrubyをセット
+							stmt = con.prepareStatement(sql);
+							stmt.setString(1, "%"+ruby+"%");
+						}
+					}else {
+						//date1とdate2に日付が入力されている(区間検索)
+						if(date1 != null && date2 != null) {
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where date BETWEEN ? and ?";
+							stmt = con.prepareStatement(sql);
+							//日付定義
+							stmt.setString(1, date1);
+							stmt.setString(2, date2);
+						}
+						//date1にのみに日付が入力されている(date1以降を検索)
+						else if(date1 != null) {
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where date >= ? ";
+							stmt = con.prepareStatement(sql);
+							stmt.setString(1, date1);
+						}
+						//date2にのみに日付が入力されている(date2以前を検索)
+						else if(date2 != null) {
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where date <= ? ";
+							stmt = con.prepareStatement(sql);
+							stmt.setString(1, date2);
+						}
 					}
-
-//					//date1とdate2に日付が入力されている(区間検索)
-//					if(date1 != null && date2 != null) {
-//						sql+="and date BETWEEN \"?\" and \"?\"";
-//						stmt.setTimestamp(2, date1);
-//						stmt.setTimestamp(3, date2);
-//					}
-//					//date1にのみに日付が入力されている(date1以降を検索)
-//					else if(date1 != null) {
-//						sql+="and date >= \"?\" ";
-//						stmt.setTimestamp(2, date1);
-//					}
-//					//date2にのみに日付が入力されている(date2以前を検索)
-//					else if(date2 != null) {
-//						sql+="and date <= \"?\" ";
-//						stmt.setTimestamp(2, date2);
-//					}
-
 					//SQL文を実行(指定された条件のUserリストを取り出す)
 					ResultSet rs = stmt.executeQuery();
 
@@ -175,6 +224,7 @@ public class UserDAO {
 						int point = rs.getInt("point");
 						String password = rs.getString("pass");
 						int uClass = rs.getInt("uclass");
+
 						//User情報を生成
 						User u = new User(uid,userName,userRuby,gid,birthday,mail,point,password,uClass);
 						ulist.add(u);
@@ -218,7 +268,7 @@ public class UserDAO {
 						String password = rs.getString("pass");
 						int uClass = rs.getInt("uclass");
 						//User情報を生成
-						System.out.print( ""+uid+name+ruby+gid+birthday+mail+point+password+uClass);
+						//System.out.print( ""+uid+name+ruby+gid+birthday+mail+point+password+uClass);
 						u = new User(uid,name,ruby,gid,birthday,mail,point,password,uClass);
 					}
 
