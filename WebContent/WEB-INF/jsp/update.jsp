@@ -28,7 +28,15 @@
 <input type="hidden" name="password" value="${password }">
 <input type="hidden"name="uclass" value="${uclass }">
 
-更新してもよろしいですか？<input type="submit"value="更新">
+更新してもよろしいですか？
+
+<input type="submit" value="はい">
+
+</form>
+<form action="detail" method="post">
+
+<input type="submit" value="いいえ">
+
 </form>
 </body>
 </html>
