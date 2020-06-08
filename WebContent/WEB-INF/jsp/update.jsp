@@ -16,7 +16,7 @@
 生年月日:<input type="date"name="birthday" value="${user.birthday }"><br>
 メールアドレス:<input type="text" name="mail" value="${user.mail }"><br>
 保有ポイント:<input type="text"name="point" value="${user.point }"><br>
-パスワード:<input type="text" name="password" value="${user.pass }"><br>
+パスワード:<input type="text" name="password" value="${user.password }"><br>
 区分:<input type="date"name="uclass" value="${user.uclass }"><br>
 <input type="submit"value="送信"><br>
 </form>
