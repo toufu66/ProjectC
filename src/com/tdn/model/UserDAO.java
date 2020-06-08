@@ -127,37 +127,38 @@ public class UserDAO {
 					PreparedStatement stmt = con.prepareStatement(sql);
 
 					//ふりがなが入力されているかどうか判定
-					if (ruby.equals("")) {
+					if (ruby.equals("") && !name.equals("")) {
 						//SQL文定義(名前)
 						//sql += "select * from user_table innner join date_table where name LIKE \"%?%\" ";
-						sql += "where name LIKE \"%?%\" ";
+						sql = "select * from user_table where name LIKE \"%?%\" ";
 						//1個目の?にnameをセット
+						stmt = con.prepareStatement(sql);
 						stmt.setString(1,name);
-					}else {
+					}else if(!ruby.equals("")){
 						//SQL文定義(ふりがな)
 						//sql += "select * from user_table innner join date_table where ruby LIKE \"%?%\" ";
-						sql += "where ruby LIKE \"%?\"% ";
-
+						sql = "select * from user_table where ruby LIKE \"%?%\" ";
 						//1個目の?にrubyをセット
+						stmt = con.prepareStatement(sql);
 						stmt.setString(1, ruby);
 					}
 
-					//date1とdate2に日付が入力されている(区間検索)
-					if(date1 != null && date2 != null) {
-						sql+="and date BETWEEN \"?\" and \"?\"";
-						stmt.setTimestamp(2, date1);
-						stmt.setTimestamp(3, date2);
-					}
-					//date1にのみに日付が入力されている(date1以降を検索)
-					else if(date1 != null) {
-						sql+="and date >= \"?\" ";
-						stmt.setTimestamp(2, date1);
-					}
-					//date2にのみに日付が入力されている(date2以前を検索)
-					else if(date2 != null) {
-						sql+="and date <= \"?\" ";
-						stmt.setTimestamp(2, date2);
-					}
+//					//date1とdate2に日付が入力されている(区間検索)
+//					if(date1 != null && date2 != null) {
+//						sql+="and date BETWEEN \"?\" and \"?\"";
+//						stmt.setTimestamp(2, date1);
+//						stmt.setTimestamp(3, date2);
+//					}
+//					//date1にのみに日付が入力されている(date1以降を検索)
+//					else if(date1 != null) {
+//						sql+="and date >= \"?\" ";
+//						stmt.setTimestamp(2, date1);
+//					}
+//					//date2にのみに日付が入力されている(date2以前を検索)
+//					else if(date2 != null) {
+//						sql+="and date <= \"?\" ";
+//						stmt.setTimestamp(2, date2);
+//					}
 
 					//SQL文を実行(指定された条件のUserリストを取り出す)
 					ResultSet rs = stmt.executeQuery();
