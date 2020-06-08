@@ -12,7 +12,7 @@
 <input type="hidden" name="uid" value="${user.uid }">
 ユーザ名:<input type="text" name="name" value="${user.name }"><br>
 ふりがな:<input type="text"name="ruby" value="${user.ruby }"><br>
-性別:<input type="text" name="gid" value="${user.gender }"><br>
+性別:<input type="text" name="gid" value="${user.gid }"><br>
 生年月日:<input type="date"name="birthday" value="${user.birthday }"><br>
 メールアドレス:<input type="text" name="mail" value="${user.mail }"><br>
 保有ポイント:<input type="text"name="point" value="${user.point }"><br>
