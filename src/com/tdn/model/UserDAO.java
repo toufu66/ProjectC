@@ -139,13 +139,13 @@ public class UserDAO {
 							stmt.setString(2, date1);
 							stmt.setString(3, date2);
 						}else if(date1 != null){
-							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where name LIKE ? and date >= ?  group by name";
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where name LIKE ? and date >= ? group by name";
 							stmt = con.prepareStatement(sql);
 							//日付定義
 							stmt.setString(1,"%"+name+"%");
 							stmt.setString(2, date1);
 						}else if(date2 != null){
-							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where name LIKE ? and date <= ?  group by name";
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where name LIKE ? and date <= ? group by name";
 							stmt = con.prepareStatement(sql);
 							//日付定義
 							stmt.setString(1,"%"+name+"%");
@@ -169,13 +169,13 @@ public class UserDAO {
 							stmt.setString(2, date1);
 							stmt.setString(3, date2);
 						}else if(date1 != null){
-							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where ruby LIKE ? and date >= ?  group by name";
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where ruby LIKE ? and date >= ? group by name";
 							stmt = con.prepareStatement(sql);
 							//日付定義
 							stmt.setString(1,"%"+ruby+"%");
 							stmt.setString(2, date1);
 						}else if(date2 != null){
-							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where ruby LIKE ? and date <= ?  group by name";
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where ruby LIKE ? and date <= ? group by name";
 							stmt = con.prepareStatement(sql);
 							//日付定義
 							stmt.setString(1,"%"+ruby+"%");
@@ -198,13 +198,13 @@ public class UserDAO {
 						}
 						//date1にのみに日付が入力されている(date1以降を検索)
 						else if(date1 != null) {
-							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where date >= ?  group by name";
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where date >= ? group by name";
 							stmt = con.prepareStatement(sql);
 							stmt.setString(1, date1);
 						}
 						//date2にのみに日付が入力されている(date2以前を検索)
 						else if(date2 != null) {
-							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where date <= ?  group by name";
+							sql ="select * from user_table left outer join date_table on user_table.uid = date_table.uid where date <= ? group by name";
 							stmt = con.prepareStatement(sql);
 							stmt.setString(1, date2);
 						}
