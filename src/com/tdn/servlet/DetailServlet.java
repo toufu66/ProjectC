@@ -1,6 +1,7 @@
 package com.tdn.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,8 +39,11 @@ public class DetailServlet extends HttpServlet {
 
 		UserDAO udao =new UserDAO();
 		User u =udao.findByUid(uid);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String userBirthday = sdf.format(u.getBirthday());
 
 		request.setAttribute("user",u);
+		request.setAttribute("birthday", userBirthday);
 
 
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/detail.jsp");
