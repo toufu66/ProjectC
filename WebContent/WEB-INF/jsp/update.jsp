@@ -34,6 +34,15 @@
 
 </form>
 <form action="detail" method="post">
+<input type="hidden" name="uid" value="${uid }">
+<input type="hidden" name="name" value="${name }">
+<input type="hidden"name="ruby" value="${ruby }">
+<input type="hidden" name="gid" value="${gid }">
+<input type="hidden"name="birthday" value="${birthday }">
+<input type="hidden" name="mail" value="${mail }">
+<input type="hidden"name="point" value="${point }">
+<input type="hidden" name="password" value="${password }">
+<input type="hidden"name="uclass" value="${uclass }">
 
 <input type="submit" value="いいえ">
 
