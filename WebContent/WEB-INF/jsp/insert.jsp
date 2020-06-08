@@ -26,8 +26,8 @@
 			メールアドレス<input type="email" name = "mail" required><br>
 
 
-			<label for="password">パスワード:</label>
-			<input type="password" name="password" id="password" required><br>
+			<label for="pass">パスワード:</label>
+			<input type="password" name="pass" id="pass" required><br>
 
 			<label for="passconf">パスワード（確認）:</label>
 			<input type="password" name="passconf" id="passconf" required><br>
@@ -49,7 +49,7 @@
 				//var form = document.forms[0];
 				var form = document.insertform;
 				//form.passconf.setCustomValidity("");
-				//alert(form.password.value);
+				//alert(form.pass.value);
 				//alert(form.passconf.value);
 				// パスワードの一致確認
 				if (form.password.value != form.passconf.value) {
