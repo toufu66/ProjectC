@@ -1,6 +1,7 @@
 package com.tdn.servlet;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,20 +48,20 @@ public class InsertServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
 		String ruby = request.getParameter("ruby");
-		String passwordStr = request.getParameter("pass");
+		String password = request.getParameter("pass");
 //		String passconfStr = request.getParameter("passconf");
 		String gidStr = request.getParameter("gender");
 		String uclassStr = request.getParameter("class");
 		String birthdayStr = request.getParameter("birthday");
+		Timestamp birthday = Timestamp.valueOf(birthdayStr);
 
-
-
-		int password =Integer.parseInt(passwordStr);
 		int gid =Integer.parseInt(gidStr);
 		int uclass =Integer.parseInt(uclassStr);
 		UserDAO dao= new UserDAO();
 		User u= new User (0,name,ruby,gid,birthday,mail,0,password,uclass);
 		dao.insert(u);
+
+		response.sendRedirect("list");
 	}
 
 }
