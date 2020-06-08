@@ -16,9 +16,9 @@
 			ふりがな <input type = "text" name = "ruby" required><br>
 			性別
 			<select name="gid">
-				<option value="0">男</option>
-				<option value="1">女</option>
-				<option value="2">その他</option>
+				<option value="1">男</option>
+				<option value="2">女</option>
+				<option value="3">その他</option>
 			</select><br>
 
 			誕生日<input type="date" name="birthday" required><br>
@@ -34,9 +34,9 @@
 
 			 会員区分
 			<select name="uclass">
-				<option value="0">子供、シニア</option>
-				<option value="1">学生</option>
-				<option value="2">一般</option>
+				<option value="1">子供、シニア</option>
+				<option value="2">学生</option>
+				<option value="3">一般</option>
 			</select><br>
 			<button onclick = "checkPass()">送信</button>
 
