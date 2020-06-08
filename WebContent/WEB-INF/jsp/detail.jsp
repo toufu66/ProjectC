@@ -11,11 +11,7 @@
 <form action="update" method="get">
 名前:<input type="text" name="name" value="${user.name }">
 ふりがな:<input type="text" name="ruby" value="${user.ruby }"><br>
-<<<<<<< HEAD
-性別:<input type="text" name="gid" value="${user.gid}"><br>
-=======
 性別:<input type="text" name="gender" value="${user.gid }"><br>
->>>>>>> branch 'master' of https://github.com/toufu66/ProjectC.git
 会員クラス:<input type="text" name="uclass" value="${user.uclass }"><br>
 生年月日:<input type="date" name="birthday" value="${user.birthday }"><br>
 メールアドレス:<input type="email" name="mail" value="${user.mail }"><br>
