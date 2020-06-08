@@ -8,6 +8,7 @@
 <title>リスト</title>
 </head>
 <body>
+<jsp:include page = "./header.jsp" />
 	<h1>ユーザ一覧</h1>
 <a href="insert?uid=${ulist.uid }">追加</a>
 	<table>
