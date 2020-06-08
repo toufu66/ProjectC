@@ -30,7 +30,7 @@ public class UserDAO {
 			public void update(User u) {
 				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
 
-					String sql = "update user_table set name=?,ruby=?,gender=?,birthday=?,mail=?,point=?,uclass=?, where uid = ?";
+					String sql = "update user_table set name=?,ruby=?,gender=?,birthday=?,mail=?,point=?,uclass=? where uid = ?";
 					PreparedStatement stmt = con.prepareStatement(sql);
 					//各?部分にユーザ情報を挿入
 					stmt.setString(1,u.getName());
