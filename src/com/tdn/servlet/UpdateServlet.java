@@ -1,8 +1,8 @@
 package com.tdn.servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
@@ -35,19 +35,26 @@ public class UpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		//データの取得
 		String uidStr =request.getParameter("uid");
 		int uid =Integer.parseInt(uidStr);
+
 		String name =request.getParameter("name");
 		String ruby =request.getParameter("ruby");
+
 		String gidStr =request.getParameter("gender");
 		int gid =Integer.parseInt(gidStr);
+
 		String uclassStr =request.getParameter("uclass");
 		int uclass =Integer.parseInt(uclassStr);
+
 		String birthdayStr =request.getParameter("birthday");
-		Date birthday = Date.valueOf(birthdayStr);
+
 		String mail =request.getParameter("mail");
+
 		String pointStr =request.getParameter("point");
 		int point =Integer.parseInt(pointStr);
+
 		String password =request.getParameter("pass");
 
 		request.setAttribute("uid",uid);
@@ -55,7 +62,7 @@ public class UpdateServlet extends HttpServlet {
 		request.setAttribute("ruby",ruby);
 		request.setAttribute("gid",gid);
 		request.setAttribute("uclass",uclass);
-		request.setAttribute("birthday",birthday);
+		request.setAttribute("birthday",birthdayStr);
 		request.setAttribute("mail",mail);
 		request.setAttribute("point",point);
 		request.setAttribute("password",password);
@@ -71,21 +78,30 @@ public class UpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String uidStr =request.getParameter("uid");
 		int uid =Integer.parseInt(uidStr);
+
 		String name =request.getParameter("name");
+
 		String ruby =request.getParameter("ruby");
+
 		String gidStr =request.getParameter("gid");
 		int gid =Integer.parseInt(gidStr);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 		String birthdayStr = request.getParameter("birthday");
-		Timestamp birthday = Timestamp.valueOf(birthdayStr);
-
+		Timestamp birthday = null;
+		try {
+			birthday = new Timestamp(sdf.parse(birthdayStr).getTime());
+		} catch (ParseException e) {
+			System.out.println("Birthdayエラー" + e.getMessage());
+		}
 
 		String mail =request.getParameter("mail");
+
 		String pointStr =request.getParameter("point");
 		int point =Integer.parseInt(pointStr);
+
 		String password =request.getParameter("password");
+
 		String uClassStr =request.getParameter("uclass");
 		int uClass =Integer.parseInt(uClassStr);
 
