@@ -46,16 +46,26 @@ public class FindServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		try {
+			//DAOを用意
 			UserDAO udao = new UserDAO();
+
+			//サーチタイプを取得
 			String searchStr = request.getParameter("search");
 			int searchType = Integer.parseInt(searchStr);
 
+			//サーチタイプを判別(0ならmid検索,1なら名前日付検索)
 			if(searchType == 0) {
+
+				//uidを取得
 				String uidStr = request.getParameter("uid");
 				int uid = Integer.parseInt(uidStr);
-				User user = udao.findByUid(uid);
-				request.setAttribute("list", user);
+				String RedirectUrl = "detail?uid="+uid;
+				response.sendRedirect(RedirectUrl);
+
+
 			}else {
+
+				//日付定義
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 				String name = request.getParameter("name");
 				String ruby = request.getParameter("ruby");
@@ -76,9 +86,9 @@ public class FindServlet extends HttpServlet {
 					request.setAttribute("list", userList);
 			}
 
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
-			dispatcher.forward(request, response);
+			//list.jspにフォワード
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list2.jsp");
+			//dispatcher.forward(request, response);
 
 			}catch(NumberFormatException | ParseException e){
 				request.setAttribute("ferrormasg", e.getMessage());
