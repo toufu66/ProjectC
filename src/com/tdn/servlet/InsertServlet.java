@@ -48,7 +48,7 @@ public class InsertServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String mail = request.getParameter("mail");
 		String ruby = request.getParameter("ruby");
-		String password = request.getParameter("pass");
+		String pass = request.getParameter("pass");
 //		String passconfStr = request.getParameter("passconf");
 		String gidStr = request.getParameter("gender");
 		String uclassStr = request.getParameter("class");
@@ -58,7 +58,7 @@ public class InsertServlet extends HttpServlet {
 		int gid =Integer.parseInt(gidStr);
 		int uclass =Integer.parseInt(uclassStr);
 		UserDAO dao= new UserDAO();
-		User u= new User (0,name,ruby,gid,birthday,mail,0,password,uclass);
+		User u= new User (0,name,ruby,gid,birthday,mail,0,pass,uclass);
 		dao.insert(u);
 
 		response.sendRedirect("list");
