@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="./css/header.css" rel="stylesheet">
 <title>変更</title>
 </head>
 <body>
+<jsp:include page = "./header.jsp" />
 <h1>変更</h1>
 <p>名前：${name }</p>
 <p>ふりがな：${ruby }</p>

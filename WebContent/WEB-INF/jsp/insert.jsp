@@ -7,9 +7,11 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<link href="./css/header.css" rel="stylesheet">
 		<title>ユーザ追加</title>
 	</head>
 	<body>
+	<jsp:include page = "./header.jsp" />
 
 		<form name="insertform" action="" method="post">
 			氏名 <input type = "text" name = "name" required><br>
