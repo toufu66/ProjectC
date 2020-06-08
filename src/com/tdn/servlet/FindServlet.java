@@ -1,7 +1,6 @@
 package com.tdn.servlet;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -72,19 +71,18 @@ public class FindServlet extends HttpServlet {
 				String ruby = request.getParameter("ruby");
 				String date1Str = request.getParameter("date1");
 				String date2Str = request.getParameter("date2");
-				Timestamp date1 = null;
-				Timestamp date2 = null;
 
-//
-//				if(date1Str.equals("") != true) {
-//					date1 = new Timestamp(sdf.parse(date1Str).getTime());
-//				}
-//				if(date1Str.equals("") != true) {
-//					date2 = new Timestamp(sdf.parse(date2Str).getTime());
-//				}
 
-					ArrayList<User> userList = udao.findUser(name,ruby,date1,date2);
+				if(date1Str.equals("")) {
+					date1Str = null;
+				}
+				if(date2Str.equals("")) {
+					date2Str = null;
+				}
+
+					ArrayList<User> userList = udao.findUser(name,ruby,date1Str,date2Str);
 					request.setAttribute("list", userList);
+
 					//list.jspにフォワード
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
 					dispatcher.forward(request, response);
