@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="./css/header.css" rel="stylesheet">
+<link href="./css/list.css" rel="stylesheet">
 <title>リスト</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
 	<h1>ユーザ一覧</h1>
 <a href="insert?uid=${ulist.uid }">追加</a>
 	<table>
-		<tr>
+		<tr >
 			<th>ユーザID</th>
 			<th>名前</th>
 			<th>ふりがな</th>
@@ -23,7 +24,7 @@
 		</tr>
 		<c:forEach var="ulist" items="${list}">
 
-			<tr>
+			<tr >
 				<td>${ulist.uid }</td>
 				<td>${ulist.name }</td>
 				<td>${ulist.ruby }</td>
