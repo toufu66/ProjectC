@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="./css/header.css" rel="stylesheet">
 <title>削除の確認</title>
 </head>
 <body>

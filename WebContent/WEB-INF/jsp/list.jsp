@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="./css/header.css" rel="stylesheet">
 <title>リスト</title>
 </head>
 <body>
