@@ -3,6 +3,7 @@ package com.tdn.servlet;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -75,7 +76,7 @@ public class UpdateServlet extends HttpServlet {
 		String gidStr =request.getParameter("gid");
 		int gid =Integer.parseInt(gidStr);
 
-
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		String birthdayStr = request.getParameter("birthday");
 		Timestamp birthday = Timestamp.valueOf(birthdayStr);
