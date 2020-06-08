@@ -32,7 +32,7 @@ public class ListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
-		ArrayList<User> ulist =dao.findUser(null, null, null, null);
+		ArrayList<User> ulist =dao.findUser("", "", null, null);
 
 		request.setAttribute("list", ulist);
 
