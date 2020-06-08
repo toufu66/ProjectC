@@ -11,7 +11,20 @@
 	</head>
 	<body>
 
-		<form name="insertform" action="" method="post" >
+		<form name="insertform" action="" method="post">
+			氏名 <input type = "text" name = "name" required><br>
+			ふりがな <input type = "text" name = "ruby" required><br>
+			性別
+			<select name="gid">
+				<option value="0">男</option>
+				<option value="1">女</option>
+				<option value="2">その他</option>
+			</select><br>
+
+			誕生日<input type="date" name="birthday" required><br>
+
+			メールアドレス<input type="email" name = "mail" required><br>
+
 
 			<label for="password">パスワード:</label>
 			<input type="password" name="password" id="password" required><br>
@@ -25,7 +38,8 @@
 				<option value="1">学生</option>
 				<option value="2">一般</option>
 			</select><br>
-			<input type = "submit" onclick="checkPass()" value = "登録"> <br>
+			<button onclick = "checkPass()">送信</button>
+
 			<div id="errorMessage"></div>
 		</form>
 		<script>
@@ -34,7 +48,7 @@
 				// エラーメッセージをクリアする
 				//var form = document.forms[0];
 				var form = document.insertform;
-				form.password.setCustomValidity("");
+				//form.passconf.setCustomValidity("");
 				//alert(form.password.value);
 				//alert(form.passconf.value);
 				// パスワードの一致確認
@@ -42,12 +56,14 @@
 					  // 一致していなかったら、エラーメッセージを表示する
 
 					  form.passconf.setCustomValidity("パスワードと確認用パスワードが一致しません");
+
 					  return false;
 					}
 					else{
-
+						form.passconf.setCustomValidity("");
 						form.action="insert";
 						form.submit();
+
 
 					}
 
