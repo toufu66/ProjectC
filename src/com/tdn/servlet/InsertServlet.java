@@ -52,8 +52,9 @@ public class InsertServlet extends HttpServlet {
 		String ruby = request.getParameter("ruby");
 		String pass = request.getParameter("pass");
 //		String passconfStr = request.getParameter("passconf");
-		String gidStr = request.getParameter("gender");
+		String gidStr = request.getParameter("gid");
 		String uclassStr = request.getParameter("uclass");
+
 		String birthdayStr = request.getParameter("birthday");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Timestamp birthday = null;
