@@ -48,7 +48,7 @@ public class UpdateServlet extends HttpServlet {
 		String mail =request.getParameter("mail");
 		String pointStr =request.getParameter("point");
 		int point =Integer.parseInt(pointStr);
-
+		String password =request.getParameter("pass");
 
 		request.setAttribute("uid",uid);
 		request.setAttribute("name",name);
@@ -58,7 +58,7 @@ public class UpdateServlet extends HttpServlet {
 		request.setAttribute("birthday",birthday);
 		request.setAttribute("mail",mail);
 		request.setAttribute("point",point);
-
+		request.setAttribute("password",password);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
 		dispatcher.forward(request, response);
