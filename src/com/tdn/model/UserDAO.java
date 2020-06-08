@@ -130,17 +130,17 @@ public class UserDAO {
 					if (ruby.equals("") && !name.equals("")) {
 						//SQL文定義(名前)
 						//sql += "select * from user_table innner join date_table where name LIKE \"%?%\" ";
-						sql = "select * from user_table where name LIKE \"%?%\" ";
+						sql = "select * from user_table where name LIKE ? ";
 						//1個目の?にnameをセット
 						stmt = con.prepareStatement(sql);
-						stmt.setString(1,name);
+						stmt.setString(1,"%"+name+"%");
 					}else if(!ruby.equals("")){
 						//SQL文定義(ふりがな)
 						//sql += "select * from user_table innner join date_table where ruby LIKE \"%?%\" ";
-						sql = "select * from user_table where ruby LIKE \"%?%\" ";
+						sql = "select * from user_table where ruby LIKE ? ";
 						//1個目の?にrubyをセット
 						stmt = con.prepareStatement(sql);
-						stmt.setString(1, ruby);
+						stmt.setString(1, "%"+ruby+"%");
 					}
 
 //					//date1とdate2に日付が入力されている(区間検索)
