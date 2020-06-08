@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="./css/header.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page = "./header.jsp" />
 <form action="find" method="post">
 <p><input type="radio" name="search" value="0" checked="checked">
 ID検索：<input type="text" name="uid"></p>
