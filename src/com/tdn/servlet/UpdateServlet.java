@@ -3,7 +3,6 @@ package com.tdn.servlet;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -76,17 +75,17 @@ public class UpdateServlet extends HttpServlet {
 		String gidStr =request.getParameter("gid");
 		int gid =Integer.parseInt(gidStr);
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+
 
 		String birthdayStr = request.getParameter("birthday");
-		Timestamp birthday = null;
+		Timestamp birthday = Timestamp.valueOf(birthdayStr);
 
 
 		String mail =request.getParameter("mail");
 		String pointStr =request.getParameter("point");
 		int point =Integer.parseInt(pointStr);
 		String password =request.getParameter("password");
-		String uClassStr =request.getParameter("uClass");
+		String uClassStr =request.getParameter("uclass");
 		int uClass =Integer.parseInt(uClassStr);
 
 
@@ -96,7 +95,7 @@ public class UpdateServlet extends HttpServlet {
 		User u = new User(uid,name,ruby,gid,birthday,mail,point,password,uClass);
 		dao.update(u);
 
-		response.sendRedirect("ulist");
+		response.sendRedirect("list");
 	}
 
 }
