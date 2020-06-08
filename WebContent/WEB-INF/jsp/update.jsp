@@ -8,17 +8,27 @@
 </head>
 <body>
 <h1>変更</h1>
+<p>${name }</p>
+<p>${ruby }</p>
+<p>${gid }</p>
+<p>${birthday }</p>
+<p>${mail }</p>
+<p>${point }</p>
+<p>${uclass }</p>
+
 <form action="update"method="post">
-<input type="hidden" name="uid" value="${user.uid }">
-ユーザ名:<input type="text" name="name" value="${user.name }"><br>
-ふりがな:<input type="text"name="ruby" value="${user.ruby }"><br>
-性別:<input type="text" name="gid" value="${user.gid }"><br>
-生年月日:<input type="date"name="birthday" value="${user.birthday }"><br>
-メールアドレス:<input type="text" name="mail" value="${user.mail }"><br>
-保有ポイント:<input type="text"name="point" value="${user.point }"><br>
-パスワード:<input type="text" name="password" value="${user.password }"><br>
-区分:<input type="date"name="uclass" value="${user.uclass }"><br>
-<input type="submit"value="送信"><br>
+
+<input type="hidden" name="uid" value="${uid }">
+<input type="hidden" name="name" value="${name }">
+<input type="hidden"name="ruby" value="${ruby }">
+<input type="hidden" name="gid" value="${gid }">
+<input type="hidden"name="birthday" value="${birthday }">
+<input type="hidden" name="mail" value="${mail }">
+<input type="hidden"name="point" value="${point }">
+<input type="hidden" name="password" value="${password }">
+<input type="hidden"name="uclass" value="${uclass }">
+
+更新してもよろしいですか？<input type="submit"value="更新">
 </form>
 </body>
 </html>
