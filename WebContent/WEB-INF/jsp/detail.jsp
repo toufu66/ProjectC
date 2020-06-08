@@ -17,6 +17,7 @@
 メールアドレス:<input type="email" name="mail" value="${user.mail }"><br>
 保有ポイント:<input type="text" name="point" value="${user.point }"><br>
 <input type="hidden" name="uid" value="${user.uid }">
+<input type="hidden" name="pass" value="${user.password }">
 <input type="submit" value="更新">
 
 </form>

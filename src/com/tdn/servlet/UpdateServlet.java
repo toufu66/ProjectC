@@ -36,11 +36,28 @@ public class UpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String uidStr =request.getParameter("uid");
 		int uid =Integer.parseInt(uidStr);
+		String name =request.getParameter("name");
+		String ruby =request.getParameter("ruby");
+		String gidStr =request.getParameter("gender");
+		int gid =Integer.parseInt(gidStr);
+		String uclassStr =request.getParameter("uclass");
+		int uclass =Integer.parseInt(uclassStr);
+		String birthdayStr =request.getParameter("birthday");
+		Timestamp birthday = Timestamp.valueOf(birthdayStr);
+		String mail =request.getParameter("mail");
+		String pointStr =request.getParameter("point");
+		int point =Integer.parseInt(pointStr);
+		String password =request.getParameter("pass");
 
-		UserDAO dao = new UserDAO();
-		User u = dao.findByUid(uid);
-
-		request.setAttribute("user",u);
+		request.setAttribute("uid",uid);
+		request.setAttribute("name",name);
+		request.setAttribute("ruby",ruby);
+		request.setAttribute("gid",gid);
+		request.setAttribute("uclass",uclass);
+		request.setAttribute("birthday",birthday);
+		request.setAttribute("mail",mail);
+		request.setAttribute("point",point);
+		request.setAttribute("password",password);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
 		dispatcher.forward(request, response);
