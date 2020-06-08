@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="./css/header.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page = "./header.jsp" />
 
 <form action="update" method="get">
 名前:<input type="text" name="name" value="${user.name }">
