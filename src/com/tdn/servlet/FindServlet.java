@@ -1,7 +1,6 @@
 package com.tdn.servlet;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -65,7 +64,7 @@ public class FindServlet extends HttpServlet {
 			}else {
 
 				//日付定義
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				//データ取得
 				String name = request.getParameter("name");
 				String ruby = request.getParameter("ruby");
@@ -82,6 +81,9 @@ public class FindServlet extends HttpServlet {
 
 					ArrayList<User> userList = udao.findUser(name,ruby,date1Str,date2Str);
 					request.setAttribute("list", userList);
+					request.setAttribute("date1", date1Str);
+					request.setAttribute("date2", date2Str);
+
 
 					//list.jspにフォワード
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
