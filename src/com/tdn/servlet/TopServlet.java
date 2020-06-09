@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tdn.model.Admin;
+
 /**
  * Servlet implementation class TopServlet
  */
@@ -30,7 +32,7 @@ public class TopServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		String admin = (String) session.getAttribute("admin");
+		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
 			// TODO Auto-generated method stub
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
