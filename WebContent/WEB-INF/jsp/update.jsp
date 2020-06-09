@@ -22,9 +22,7 @@
 <p>区分：${uclassstr }</p>
 <p>性別：${genderstr }</p>
 
-性別:<c:forEach var="glist" items="${glist}">
-	 <c:if test="${user.gid == glist.gid}">  </c:if>${glist.gender }
-	</c:forEach>
+
 
 <form action="update"method="post">
 
