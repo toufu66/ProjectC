@@ -44,6 +44,7 @@ public class DetailServlet extends HttpServlet {
 			String uidStr=request.getParameter("uid");
 			int uid=Integer.parseInt(uidStr);
 
+
 			UserDAO udao =new UserDAO();
 			User u =udao.findByUid(uid);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
