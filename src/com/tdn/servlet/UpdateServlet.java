@@ -52,8 +52,9 @@ public class UpdateServlet extends HttpServlet {
 
 			String gidStr =request.getParameter("gender");
 			int gid =Integer.parseInt(gidStr);
-			UserDAO udao = new UserDAO();
+			//UserDAO udao = new UserDAO();
 			ArrayList<Gender> gList = new ArrayList<>();
+			System.out.print(gid);
 			String genderstr=gList.get(gid-1).getGender();
 
 			String uclassStr =request.getParameter("uclass");

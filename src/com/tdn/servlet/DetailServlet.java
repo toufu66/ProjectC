@@ -49,11 +49,11 @@ public class DetailServlet extends HttpServlet {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String userBirthday = sdf.format(u.getBirthday());
 
-			ArrayList<Gender> gList = new ArrayList<>();
-			gList = udao.getGenderList();
+			ArrayList<Gender> gList = udao.getGenderList();//new ArrayList<>();
+			//gList = udao.getGenderList();
 
-			ArrayList<Userclass> userclassList = new ArrayList<>();
-			userclassList = udao.getUserclassList();
+			ArrayList<Userclass> userclassList = udao.getUserclassList(); //new ArrayList<>();
+			//userclassList = udao.getUserclassList();
 
 
 			request.setAttribute("user",u);
