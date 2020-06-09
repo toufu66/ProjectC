@@ -7,7 +7,7 @@
 <link href="./css/header.css" rel="stylesheet">
 <link href="./css/top.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
-<title>検索フォーム</title>
+<title>ユーザ検索フォーム</title>
 </head>
 <body>
 <jsp:include page = "./header.jsp" />
