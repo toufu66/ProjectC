@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <link href="./css/header.css" rel="stylesheet">
-<link href="./css/list.css" rel="stylesheet">
+<link href="./css/table.css" rel="stylesheet">
+<link href="./css/top.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
 <title>リスト</title>
 </head>
 <body>
