@@ -51,13 +51,10 @@ public class DetailServlet extends HttpServlet {
 			String userBirthday = sdf.format(u.getBirthday());
 
 			ArrayList<Gender> gList = udao.getGenderList();//new ArrayList<>();
-			//gList = udao.getGenderList();
+
 
 			ArrayList<Userclass> userclassList = udao.getUserclassList(); //new ArrayList<>();
-			//userclassList = udao.getUserclassList();
 
-			//String uclass = (String) request.getParameter("uclass");
-					//(int) Integer.parseInt();
 
 
 			request.setAttribute("user",u);
