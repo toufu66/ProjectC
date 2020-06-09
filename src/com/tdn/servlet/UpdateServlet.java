@@ -18,6 +18,7 @@ import com.tdn.model.Admin;
 import com.tdn.model.Gender;
 import com.tdn.model.User;
 import com.tdn.model.UserDAO;
+import com.tdn.model.Userclass;
 
 /**
  * Servlet implementation class UpdateServlet
@@ -53,10 +54,12 @@ public class UpdateServlet extends HttpServlet {
 			int gid =Integer.parseInt(gidStr);
 			UserDAO udao = new UserDAO();
 			ArrayList<Gender> gList = new ArrayList<>();
-			gList = udao.getGenderList();
+//			String genderstr=gList.get(gid-1).getGender();
 
 			String uclassStr =request.getParameter("uclass");
 			int uclass =Integer.parseInt(uclassStr);
+			ArrayList<Userclass> userclassList = new ArrayList<>();
+
 
 			String birthdayStr =request.getParameter("birthday");
 
@@ -71,7 +74,7 @@ public class UpdateServlet extends HttpServlet {
 			request.setAttribute("name",name);
 			request.setAttribute("ruby",ruby);
 			request.setAttribute("glist", gList);
-			request.setAttribute("uclass",uclass);
+			request.setAttribute("uclist", userclassList);
 			request.setAttribute("birthday",birthdayStr);
 			request.setAttribute("mail",mail);
 			request.setAttribute("point",point);
