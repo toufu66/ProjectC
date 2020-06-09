@@ -292,7 +292,7 @@ public class UserDAO {
 						int gid = rs.getInt("gid");
 						String gender = rs.getString("gender");
 
-						//User情報を生成
+						//性別リストを生成
 						Gender g = new Gender(gid,gender);
 						genderList.add(g);
 					}
@@ -315,7 +315,7 @@ public class UserDAO {
 						int cid = rs.getInt("cid");
 						String uclasstype = rs.getString("type");
 
-						//User情報を生成
+						//会員区分リストを生成
 						Userclass u = new Userclass(cid,uclasstype);
 						userclassList.add(u);
 					}
