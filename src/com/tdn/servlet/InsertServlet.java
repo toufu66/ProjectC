@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tdn.model.User;
 import com.tdn.model.UserDAO;
@@ -35,10 +36,17 @@ public class InsertServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		String admin = (String) session.getAttribute("admin");
+		if(admin != null) {
 
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/insert.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/insert.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			String RedirectUrl = "login";
+			response.sendRedirect(RedirectUrl);
+		}
 	}
 
 	/**
