@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +19,19 @@
 <p>誕生日：${birthday }</p>
 <p>メールアドレス：${mail }</p>
 <p>所有ポイント：${point }</p>
-<p>区分：${uclass }</p>
+<p>区分：${uclassstr }</p>
+<p>性別：${genderstr }</p>
+
+性別:<c:forEach var="glist" items="${glist}">
+	 <c:if test="${user.gid == glist.gid}">  </c:if>${glist.gender }
+	</c:forEach>
 
 <form action="update"method="post">
 
 <input type="hidden" name="uid" value="${uid }">
 <input type="hidden" name="name" value="${name }">
 <input type="hidden"name="ruby" value="${ruby }">
+
 <input type="hidden" name="gid" value="${gid }">
 <input type="hidden"name="birthday" value="${birthday }">
 <input type="hidden" name="mail" value="${mail }">

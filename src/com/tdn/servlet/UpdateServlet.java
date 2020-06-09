@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,8 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.tdn.model.Admin;
+import com.tdn.model.Gender;
 import com.tdn.model.User;
 import com.tdn.model.UserDAO;
+import com.tdn.model.Userclass;
 
 /**
  * Servlet implementation class UpdateServlet
@@ -49,9 +52,14 @@ public class UpdateServlet extends HttpServlet {
 
 			String gidStr =request.getParameter("gender");
 			int gid =Integer.parseInt(gidStr);
+			UserDAO udao = new UserDAO();
+			ArrayList<Gender> gList = new ArrayList<>();
+			String genderstr=gList.get(gid-1).getGender();
 
 			String uclassStr =request.getParameter("uclass");
 			int uclass =Integer.parseInt(uclassStr);
+			ArrayList<Userclass> userclassList = new ArrayList<>();
+			String uclassstr =  userclassList.get(uclass).getUclass();
 
 			String birthdayStr =request.getParameter("birthday");
 
@@ -65,8 +73,8 @@ public class UpdateServlet extends HttpServlet {
 			request.setAttribute("uid",uid);
 			request.setAttribute("name",name);
 			request.setAttribute("ruby",ruby);
-			request.setAttribute("gid",gid);
-			request.setAttribute("uclass",uclass);
+			request.setAttribute("genderstr", genderstr);
+			request.setAttribute("uclassstr", uclassstr);
 			request.setAttribute("birthday",birthdayStr);
 			request.setAttribute("mail",mail);
 			request.setAttribute("point",point);
@@ -95,6 +103,7 @@ public class UpdateServlet extends HttpServlet {
 
 		String gidStr =request.getParameter("gid");
 		int gid =Integer.parseInt(gidStr);
+
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String birthdayStr = request.getParameter("birthday");
