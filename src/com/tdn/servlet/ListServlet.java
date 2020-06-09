@@ -43,10 +43,14 @@ public class ListServlet extends HttpServlet {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
 			dispatcher.forward(request, response);
+
 		}else {
 			String RedirectUrl = "login";
 			response.sendRedirect(RedirectUrl);
 		}
+
+
+
 	}
 
 	/**
