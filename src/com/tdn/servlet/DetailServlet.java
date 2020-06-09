@@ -55,11 +55,15 @@ public class DetailServlet extends HttpServlet {
 			ArrayList<Userclass> userclassList = udao.getUserclassList(); //new ArrayList<>();
 			//userclassList = udao.getUserclassList();
 
+			//String uclass = (String) request.getParameter("uclass");
+					//(int) Integer.parseInt();
+
 
 			request.setAttribute("user",u);
 			request.setAttribute("birthday", userBirthday);
 			request.setAttribute("glist", gList);
 			request.setAttribute("uclist", userclassList);
+			//request.setAttribute("uclass", uclass);
 			//request.setAttribute("gid", gid);
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/detail.jsp");
 			dispatcher.forward(request, response);
