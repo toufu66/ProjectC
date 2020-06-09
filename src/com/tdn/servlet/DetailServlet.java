@@ -60,7 +60,7 @@ public class DetailServlet extends HttpServlet {
 			request.setAttribute("birthday", userBirthday);
 			request.setAttribute("glist", gList);
 			request.setAttribute("uclist", userclassList);
-
+			//request.setAttribute("gid", gid);
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/detail.jsp");
 			dispatcher.forward(request, response);
 		}else {
