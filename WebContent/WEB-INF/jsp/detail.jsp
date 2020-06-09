@@ -13,7 +13,7 @@
 <body>
 <jsp:include page = "./header.jsp" />
 
-<form action="update2" method="get">
+<form action="update" method="get">
 名前:<input type="text" name="name" value="${user.name }">
 ふりがな:<input type="text" name="ruby" value="${user.ruby }">
 性別:<select name="gender" >
