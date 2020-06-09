@@ -303,7 +303,7 @@ public class UserDAO {
 				return genderList;
 			}
 
-			public ArrayList<Userclass> getGenderclassList(){
+			public ArrayList<Userclass> getUserclassList(){
 				ArrayList<Userclass> userclassList = new ArrayList<>();
 
 				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
