@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class TopServlet
@@ -28,9 +29,16 @@ public class TopServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
-		dispatcher.forward(request, response);
+		HttpSession session=request.getSession();
+		String admin = (String) session.getAttribute("admin");
+		if(admin != null) {
+			// TODO Auto-generated method stub
+			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
+			dispatcher.forward(request, response);
+			}else {
+				String RedirectUrl = "login";
+				response.sendRedirect(RedirectUrl);
+			}
 	}
 
 	/**
