@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tdn.model.Admin;
 import com.tdn.model.User;
 
 /**
@@ -33,7 +34,7 @@ public class ListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		String admin = (String) session.getAttribute("admin");
+		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
 			com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
 			ArrayList<User> ulist =dao.findUser("", "", null, null);

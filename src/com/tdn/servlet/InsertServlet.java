@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tdn.model.Admin;
 import com.tdn.model.User;
 import com.tdn.model.UserDAO;
 
@@ -37,7 +38,7 @@ public class InsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		String admin = (String) session.getAttribute("admin");
+		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
 
 
