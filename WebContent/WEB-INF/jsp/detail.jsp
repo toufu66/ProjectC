@@ -17,9 +17,11 @@
 名前:<input type="text" name="name" value="${user.name }">
 ふりがな:<input type="text" name="ruby" value="${user.ruby }">
 性別:<select name="gender" >
-				<option value="1" <c:if test="${user.gid == 1}"> selected </c:if>>男</option>
-				<option value="2" <c:if test="${user.gid == 2}"> selected </c:if>>女</option>
-				<option value="3" <c:if test="${user.gid == 3}">selected </c:if>>その他</option>
+				<c:forEach var="glist" items="${glist}">
+				<option value="${glist.gid }" <c:if test="${user.gid == glist.gid}"> selected </c:if>>${glist.gender }</option>
+				</c:forEach>
+				<!-- <option value="2" <c:if test="${user.gid == 2}"> selected </c:if>>女</option>
+				<option value="3" <c:if test="${user.gid == 3}">selected </c:if>>その他</option> -->
 			</select><br>
 会員区分:<select name="uclass" >
 				<option value="1" <c:if test="${user.uclass == 1}"> selected </c:if>>子供、シニア</option>
