@@ -32,22 +32,24 @@ public class DeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		String uidStr=request.getParameter("uid");
-		int uid=Integer.parseInt(uidStr);
+
+			request.setCharacterEncoding("UTF-8");
+			String uidStr=request.getParameter("uid");
+			int uid=Integer.parseInt(uidStr);
 
 
-		if(uidStr==null) {
+			if(uidStr==null) {
 			response.sendRedirect("list");
 			return;
-		}
+			}
 
-		UserDAO dao =new UserDAO();
-		User u =dao.findByUid(uid);
-		request.setAttribute("user",u);
+			UserDAO dao =new UserDAO();
+			User u =dao.findByUid(uid);
+			request.setAttribute("user",u);
 
-		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/del.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/del.jsp");
+			dispatcher.forward(request, response);
+
 	}
 
 	/**
