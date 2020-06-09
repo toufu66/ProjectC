@@ -24,7 +24,7 @@
 
 
 
-<form action="update"method="post">
+<form action="update2"method="post">
 
 <input type="hidden" name="uid" value="${uid }">
 <input type="hidden" name="name" value="${name }">
