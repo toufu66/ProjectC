@@ -15,12 +15,12 @@
 <h1>変更</h1>
 <p>名前：${name }</p>
 <p>ふりがな：${ruby }</p>
-<p>性別：${gid }</p>
+<p>性別：${genderstr }</p>
 <p>誕生日：${birthday }</p>
 <p>メールアドレス：${mail }</p>
 <p>所有ポイント：${point }</p>
 <p>区分：${uclassstr }</p>
-<p>性別：${genderstr }</p>
+
 
 
 

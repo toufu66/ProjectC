@@ -73,6 +73,7 @@ public class UpdateServlet extends HttpServlet {
 			request.setAttribute("uid",uid);
 			request.setAttribute("name",name);
 			request.setAttribute("ruby",ruby);
+			request.setAttribute("gid", gid);
 			request.setAttribute("genderstr", genderstr);
 			request.setAttribute("uclassstr", uclassstr);
 			request.setAttribute("birthday",birthdayStr);
@@ -123,9 +124,6 @@ public class UpdateServlet extends HttpServlet {
 
 		String uClassStr =request.getParameter("uclass");
 		int uClass =Integer.parseInt(uClassStr);
-
-
-
 
 		UserDAO dao = new UserDAO();
 		User u = new User(uid,name,ruby,gid,birthday,mail,point,password,uClass);
