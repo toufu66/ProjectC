@@ -22,9 +22,14 @@
 <form action="delete" method="post">
 <input type="hidden" name="uid" value="${user.uid }">
 
-<input type="submit" value="削除">
-
+<input type="submit" value="はい">
 </form>
+<form action="list" method="post">
+<input type="hidden" name="uid" value="${user.uid }">
+
+<input type="submit" value="いいえ">
+</form>
+
 
 </body>
 </html>
