@@ -2,6 +2,7 @@ package com.tdn.servlet;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.tdn.model.Admin;
+import com.tdn.model.Gender;
 import com.tdn.model.User;
 import com.tdn.model.UserDAO;
+import com.tdn.model.Userclass;
 
 /**
  * Servlet implementation class DetailServlet
@@ -46,9 +49,17 @@ public class DetailServlet extends HttpServlet {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String userBirthday = sdf.format(u.getBirthday());
 
+			ArrayList<Gender> gList = new ArrayList<>();
+			gList = udao.getGenderList();
+
+			ArrayList<Userclass> userclassList = new ArrayList<>();
+			userclassList = udao.getUserclassList();
+
+
 			request.setAttribute("user",u);
 			request.setAttribute("birthday", userBirthday);
-
+			request.setAttribute("glist", gList);
+			request.setAttribute("uclist", userclassList);
 
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/detail.jsp");
 			dispatcher.forward(request, response);

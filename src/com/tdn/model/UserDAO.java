@@ -279,6 +279,52 @@ public class UserDAO {
 				}
 				return u;
 			}
+
+			public ArrayList<Gender> getGenderList(){
+				ArrayList<Gender> genderList = new ArrayList<>();
+
+				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
+					String sql = "select * from gender_table";
+					PreparedStatement stmt = con.prepareStatement(sql);
+					ResultSet rs = stmt.executeQuery();
+					while(rs.next()){
+						//取り出した情報からデータを取得
+						int gid = rs.getInt("gid");
+						String gender = rs.getString("gender");
+
+						//性別リストを生成
+						Gender g = new Gender(gid,gender);
+						genderList.add(g);
+					}
+				}catch(SQLException e) {
+
+				}
+
+				return genderList;
+			}
+
+			public ArrayList<Userclass> getUserclassList(){
+				ArrayList<Userclass> userclassList = new ArrayList<>();
+
+				try (Connection con = DriverManager.getConnection(URL,USER,PASS);){
+					String sql = "select * from class_table";
+					PreparedStatement stmt = con.prepareStatement(sql);
+					ResultSet rs = stmt.executeQuery();
+					while(rs.next()){
+						//取り出した情報からデータを取得
+						int cid = rs.getInt("cid");
+						String uclasstype = rs.getString("type");
+
+						//会員区分リストを生成
+						Userclass u = new Userclass(cid,uclasstype);
+						userclassList.add(u);
+					}
+				}catch(SQLException e) {
+
+				}
+
+				return userclassList;
+			}
 }
 
 

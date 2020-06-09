@@ -17,14 +17,14 @@
 名前:<input type="text" name="name" value="${user.name }">
 ふりがな:<input type="text" name="ruby" value="${user.ruby }">
 性別:<select name="gender" >
-				<option value="1" <c:if test="${user.gid == 1}"> selected </c:if>>男</option>
-				<option value="2" <c:if test="${user.gid == 2}"> selected </c:if>>女</option>
-				<option value="3" <c:if test="${user.gid == 3}">selected </c:if>>その他</option>
+				<c:forEach var="glist" items="${glist}">
+				<option value="${glist.gid }" <c:if test="${user.gid == glist.gid}"> selected </c:if>>${glist.gender }</option>
+				</c:forEach>
 			</select><br>
 会員区分:<select name="uclass" >
-				<option value="1" <c:if test="${user.uclass == 1}"> selected </c:if>>子供、シニア</option>
-				<option value="2" <c:if test="${user.uclass == 2}"> selected </c:if>>学生</option>
-				<option value="3" <c:if test="${user.uclass == 3}">selected </c:if>>一般</option>
+				<c:forEach var="uclist" items="${uclist}">
+				<option value="${uclist.cid }" <c:if test="${user.uclass == uclist.cid}"> selected </c:if>>${uclist.uclass }</option>
+				</c:forEach>
 			</select>
 生年月日:<input type="date" name="birthday" value="${birthday }"><br>
 メールアドレス:<input type="email" name="mail" value="${user.mail }"><br>
