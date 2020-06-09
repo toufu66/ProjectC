@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tdn.model.User;
 import com.tdn.model.UserDAO;
@@ -34,41 +35,49 @@ public class UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		//データの取得
-		String uidStr =request.getParameter("uid");
-		int uid =Integer.parseInt(uidStr);
+		HttpSession session=request.getSession();
+		String admin = (String) session.getAttribute("admin");
+		if(admin != null) {
+			request.setCharacterEncoding("UTF-8");
+			//データの取得
+			String uidStr =request.getParameter("uid");
+			int uid =Integer.parseInt(uidStr);
 
-		String name =request.getParameter("name");
-		String ruby =request.getParameter("ruby");
+			String name =request.getParameter("name");
+			String ruby =request.getParameter("ruby");
 
-		String gidStr =request.getParameter("gender");
-		int gid =Integer.parseInt(gidStr);
+			String gidStr =request.getParameter("gender");
+			int gid =Integer.parseInt(gidStr);
 
-		String uclassStr =request.getParameter("uclass");
-		int uclass =Integer.parseInt(uclassStr);
+			String uclassStr =request.getParameter("uclass");
+			int uclass =Integer.parseInt(uclassStr);
 
-		String birthdayStr =request.getParameter("birthday");
+			String birthdayStr =request.getParameter("birthday");
 
-		String mail =request.getParameter("mail");
+			String mail =request.getParameter("mail");
 
-		String pointStr =request.getParameter("point");
-		int point =Integer.parseInt(pointStr);
+			String pointStr =request.getParameter("point");
+			int point =Integer.parseInt(pointStr);
 
-		String password =request.getParameter("pass");
+			String password =request.getParameter("pass");
 
-		request.setAttribute("uid",uid);
-		request.setAttribute("name",name);
-		request.setAttribute("ruby",ruby);
-		request.setAttribute("gid",gid);
-		request.setAttribute("uclass",uclass);
-		request.setAttribute("birthday",birthdayStr);
-		request.setAttribute("mail",mail);
-		request.setAttribute("point",point);
-		request.setAttribute("password",password);
+			request.setAttribute("uid",uid);
+			request.setAttribute("name",name);
+			request.setAttribute("ruby",ruby);
+			request.setAttribute("gid",gid);
+			request.setAttribute("uclass",uclass);
+			request.setAttribute("birthday",birthdayStr);
+			request.setAttribute("mail",mail);
+			request.setAttribute("point",point);
+			request.setAttribute("password",password);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			String RedirectUrl = "login";
+			response.sendRedirect(RedirectUrl);
+		}
+
 	}
 
 	/**

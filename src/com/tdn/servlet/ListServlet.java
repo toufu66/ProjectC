@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tdn.model.User;
 
@@ -31,14 +32,25 @@ public class ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
-		ArrayList<User> ulist =dao.findUser("", "", null, null);
+		HttpSession session=request.getSession();
+		String admin = (String) session.getAttribute("admin");
+		if(admin != null) {
+			com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
+			ArrayList<User> ulist =dao.findUser("", "", null, null);
 
-		request.setAttribute("list", ulist);
+			request.setAttribute("list", ulist);
 
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
+			dispatcher.forward(request, response);
+
+		}else {
+			String RedirectUrl = "login";
+			response.sendRedirect(RedirectUrl);
+		}
+
+
+
 	}
 
 	/**

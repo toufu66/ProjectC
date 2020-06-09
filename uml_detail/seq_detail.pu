@@ -4,20 +4,16 @@ title ユーザの詳細
 autonumber "#."
 
 actor 管理者
-participant DetailServlet
-participant UserDAO
-participant detail.jsp
-database User
+participant ユーザ一覧画面
+participant 詳細画面
+database ユーザDB
 
+管理者 -[#green]> ユーザ一覧画面:ユーザネームをクリック
+ユーザ一覧画面 -[#blue]> 詳細画面:遷移
+詳細画面 -> ユーザDB:データ検索
+ユーザDB --> 詳細画面:ユーザ情報
 
-管理者 -> DetailServlet:GETリクエスト
-DetailServlet -> UserDAO :UserDAO生成
-DetailServlet -> UserDAO :findByUid()
-UserDAO -> User:User生成
-UserDAO --> DetailServlet:User
-DetailServlet -> request:setAttribute(User)
-DetailServlet -> detail.jsp:フォワード
-detail.jsp --> 管理者:ユーザ詳細表示
+詳細画面 --[#green]> 管理者:ユーザ詳細
 
 
 @enduml

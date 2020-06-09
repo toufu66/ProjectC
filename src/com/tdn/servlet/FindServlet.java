@@ -35,13 +35,16 @@ public class FindServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session=request.getSession();
-		String u = (String) session.getAttribute("user");
-		if(u != null) {
+		String admin = (String) session.getAttribute("admin");
+		if(admin != null) {
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/find.jsp");
 		dispatcher.forward(request, response);
 		} else {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-		dispatcher.forward(request, response);}
+			String RedirectUrl = "login";
+			response.sendRedirect(RedirectUrl);
+			//RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+		//dispatcher.forward(request, response);
+			}
 	}
 
 	/**
