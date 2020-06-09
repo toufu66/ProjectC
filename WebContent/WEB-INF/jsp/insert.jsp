@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
 		<title>ユーザ追加</title>
 	</head>
-	<body>
+	<body onload = "datein()">
 	<jsp:include page = "./header.jsp" />
 
 		<form name="insertform" action="" method="post">
-			氏名 <input type = "text" name = "name" required><br>
-			ふりがな <input type = "text" name = "ruby" required><br>
+			氏名 <input type = "text" name = "name" placeholder="蛸崎太郎" required><br>
+			ふりがな <input type = "text" pattern="[\u3041-\u3096]*" name = "ruby" placeholder="たこさきたろう" required><br>
 			性別
 			<select name="gid">
 				<option value="1">男</option>
@@ -25,16 +25,26 @@
 				<option value="3">その他</option>
 			</select><br>
 
-			誕生日<input type="date" name="birthday" required><br>
-
-			メールアドレス<input type="email" name = "mail" required><br>
+			誕生日<input type="date" name="birthday" id="birthday" placeholder="年-月-日" required><br>
+			<script>
+			function datein() {
+			    var today = new Date();
+			    today.setDate(today.getDate());
+			    var yyyy = today.getFullYear()-24;
+			    var mm = ("0"+(today.getMonth()+1)).slice(-2);
+			    var dd = ("0"+today.getDate()).slice(-2);
+			    document.getElementById("birthday").value=yyyy+'-'+mm+'-'+dd;
+			    //document.getElementById("birthday").placeholder=yyyy+'-'+mm+'-'+dd;
+			}
+			</script>
+			メールアドレス<input type="email" name = "mail" placeholder="example@aquarium.com" required><br>
 
 
 			<label for="pass">パスワード:</label>
-			<input type="password" name="pass" id="pass" required><br>
+			<input type="password" pattern="^[0-9A-Za-z]+$" name="pass" id="pass" required><br>
 
 			<label for="passconf">パスワード（確認）:</label>
-			<input type="password" name="passconf" id="passconf" required><br>
+			<input type="password" pattern="^[0-9A-Za-z]+$" name="passconf" id="passconf" required><br>
 
 			 会員区分
 			<select name="uclass">

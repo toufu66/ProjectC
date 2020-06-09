@@ -65,6 +65,7 @@ public class InsertServlet extends HttpServlet {
 		String uclassStr = request.getParameter("uclass");
 
 		String birthdayStr = request.getParameter("birthday");
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Timestamp birthday = null;
 		try {
