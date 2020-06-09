@@ -44,22 +44,24 @@ public class DetailServlet extends HttpServlet {
 			String uidStr=request.getParameter("uid");
 			int uid=Integer.parseInt(uidStr);
 
+
 			UserDAO udao =new UserDAO();
 			User u =udao.findByUid(uid);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String userBirthday = sdf.format(u.getBirthday());
 
 			ArrayList<Gender> gList = udao.getGenderList();//new ArrayList<>();
-			//gList = udao.getGenderList();
+
 
 			ArrayList<Userclass> userclassList = udao.getUserclassList(); //new ArrayList<>();
-			//userclassList = udao.getUserclassList();
+
 
 
 			request.setAttribute("user",u);
 			request.setAttribute("birthday", userBirthday);
 			request.setAttribute("glist", gList);
 			request.setAttribute("uclist", userclassList);
+			//request.setAttribute("uclass", uclass);
 			//request.setAttribute("gid", gid);
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/detail.jsp");
 			dispatcher.forward(request, response);

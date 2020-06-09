@@ -81,6 +81,7 @@ public class UpdateServlet extends HttpServlet {
 			request.setAttribute("mail",mail);
 			request.setAttribute("point",point);
 			request.setAttribute("password",password);
+			request.setAttribute("uclass",uclass);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
 			dispatcher.forward(request, response);
@@ -124,9 +125,12 @@ public class UpdateServlet extends HttpServlet {
 		String password =request.getParameter("password");
 
 		String uClassStr =request.getParameter("uclass");
+
 		int uClass =Integer.parseInt(uClassStr);
 
+
 		UserDAO dao = new UserDAO();
+
 		User u = new User(uid,name,ruby,gid,birthday,mail,point,password,uClass);
 		dao.update(u);
 
