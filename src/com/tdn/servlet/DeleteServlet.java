@@ -21,6 +21,7 @@ import com.tdn.model.Userclass;
 
 /**
  * Servlet implementation class DeleteServlet
+ * @author メイン田尻　サブ全員
  */
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {

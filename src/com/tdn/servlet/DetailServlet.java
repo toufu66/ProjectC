@@ -20,6 +20,7 @@ import com.tdn.model.Userclass;
 
 /**
  * Servlet implementation class DetailServlet
+ * @author メイン栄　サブ全員
  */
 @WebServlet("/detail")
 public class DetailServlet extends HttpServlet {

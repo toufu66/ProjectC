@@ -19,6 +19,7 @@ import com.tdn.model.TimeTableDAO;
 
 /**
  * Servlet implementation class TimeTableServlet
+ * @author メイン木村
  */
 @WebServlet("/TimeTable")
 public class TimeTableServlet extends HttpServlet {
