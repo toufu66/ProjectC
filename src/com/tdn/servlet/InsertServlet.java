@@ -54,6 +54,7 @@ public class InsertServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
 		request.setCharacterEncoding("UTF-8");
 
 		String name = request.getParameter("name");
@@ -79,8 +80,8 @@ public class InsertServlet extends HttpServlet {
 		UserDAO dao= new UserDAO();
 		User u= new User (0,name,ruby,gid,birthday,mail,0,pass,uclass);
 		dao.insert(u);
-
-		response.sendRedirect("list?page=1");
+		String url="list?page="+(int) session.getAttribute("lastPage");//("lastPage");
+		response.sendRedirect(url);
 	}
 
 }
