@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * ユーザDAO
+ * @author 木村
  *
  */
 public class UserDAO {

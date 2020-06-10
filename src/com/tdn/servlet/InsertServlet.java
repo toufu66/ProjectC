@@ -20,6 +20,7 @@ import com.tdn.model.UserDAO;
 
 /**
  * Servlet implementation class InsertServlet
+ * @author メイン古閑　サブ全員
  */
 @WebServlet("/insert")
 public class InsertServlet extends HttpServlet {

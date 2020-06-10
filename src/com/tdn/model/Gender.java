@@ -1,7 +1,7 @@
 package com.tdn.model;
 /**
  * 性別のクラス
- * @author edu04
+ * @author 栄
  *
  */
 public class Gender {

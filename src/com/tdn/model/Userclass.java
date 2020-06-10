@@ -1,7 +1,7 @@
 package com.tdn.model;
 /**
  * 会員のクラス
- * @author edu04
+ * @author 栄
  *
  */
 public class Userclass {

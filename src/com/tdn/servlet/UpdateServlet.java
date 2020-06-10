@@ -22,6 +22,7 @@ import com.tdn.model.Userclass;
 
 /**
  * Servlet implementation class UpdateServlet
+ * @author メイン栄　木村　　サブ全員
  */
 @WebServlet("/update")
 public class UpdateServlet extends HttpServlet {

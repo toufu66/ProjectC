@@ -17,6 +17,7 @@ import com.tdn.model.UserDAO;
 
 /**
  * Servlet implementation class FindServlet
+ * @author メイン木村　サブ全員
  */
 @WebServlet("/find")
 public class FindServlet extends HttpServlet {

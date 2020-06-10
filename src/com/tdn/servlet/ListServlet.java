@@ -16,6 +16,7 @@ import com.tdn.model.User;
 
 /**
  * Servlet implementation class List_Servlet
+ * @author メイン全員
  */
 @WebServlet("/list")
 public class ListServlet extends HttpServlet {

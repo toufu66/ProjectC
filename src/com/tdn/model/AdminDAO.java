@@ -9,6 +9,7 @@ import java.sql.SQLException;
 /**
  *
  * 管理者DAO
+ * @author 田尻
  *
  */
 public class AdminDAO {

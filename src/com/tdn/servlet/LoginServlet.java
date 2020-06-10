@@ -15,6 +15,7 @@ import com.tdn.model.AdminDAO;
 
 /**
  * Servlet implementation class LoginServlet
+ * @author メイン田尻
  */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
