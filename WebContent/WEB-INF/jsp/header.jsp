@@ -13,9 +13,7 @@
 			}else{
 
 				btn.addEventListener('click', function(e){
-				  console.log('ログアウトをやめました');
-
-				  // デフォルトのイベントをキャンセル
+				  // ログアウトをキャンセル
 				  e.preventDefault();
 				}, false);
 			}
