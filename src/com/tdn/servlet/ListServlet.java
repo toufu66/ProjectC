@@ -58,7 +58,7 @@ public class ListServlet extends HttpServlet {
 				//System.out.println((page-1)*divNum);
 				//System.out.println(allListNum-((page-1)*divNum));
 				for (int i = (page-1)*divNum; i < allListNum;i++) {
-					System.out.println(page);
+					//System.out.println(page);
 					ulist.add(ulist_.get(i));
 				}
 
