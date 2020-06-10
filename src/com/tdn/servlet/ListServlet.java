@@ -44,14 +44,15 @@ public class ListServlet extends HttpServlet {
 			com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
 			ArrayList<User> ulist_ =dao.findUser("", "", null, null);
 			int allListNum= ulist_.size();
-			int divNum=５０;//1ページに表示するリスト数
+			int divNum=２;//1ページに表示するリスト数
 			int allPageNum=(int) Math.ceil(allListNum/(double) divNum);
+			int allPageNum_=(int) Math.ceil(allListNum+1/(double) divNum);
 			//System.out.println(allListNum);
 			//System.out.print(allPageNum);
 			request.setAttribute("page", page);
 			request.setAttribute("lastPage", allPageNum);
 			if(session.getAttribute("lastPage")==null) {
-				session.setAttribute("lastPage",allPageNum);
+				session.setAttribute("lastPage_",allPageNum_);
 			}
 			ArrayList<User> ulist = new ArrayList<User>();
 			//System.out.println(page!=allPageNum);
