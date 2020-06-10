@@ -50,7 +50,9 @@ public class ListServlet extends HttpServlet {
 			//System.out.print(allPageNum);
 			request.setAttribute("page", page);
 			request.setAttribute("lastPage", allPageNum);
-
+			if(session.getAttribute("lastPage")==null) {
+				session.setAttribute("lastPage",allPageNum);
+			}
 			ArrayList<User> ulist = new ArrayList<User>();
 			//System.out.println(page!=allPageNum);
 			if( page!=allPageNum) {
