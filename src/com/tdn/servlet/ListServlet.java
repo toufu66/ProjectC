@@ -58,18 +58,19 @@ public class ListServlet extends HttpServlet {
 			//}
 			ArrayList<User> ulist = new ArrayList<User>();
 			//System.out.println(page!=allPageNum);
-			if( page!=allPageNum) {
-				for (int i = (page-1)*divNum;i< page*divNum;i++) {
-					//System.out.println(page);
-					ulist.add(ulist_.get(i));
+			if(ulist.size() != 0) {
+				if( page!=allPageNum) {
+					for (int i = (page-1)*divNum;i< page*divNum;i++) {
+						ulist.add(ulist_.get(i));
+						}
+				}else {
+					//System.out.println((page-1)*divNum);
+					//System.out.println(allListNum-((page-1)*divNum));
+					for (int i = (page-1)*divNum; i < allListNum;i++) {
+						//System.out.println(page);
+						ulist.add(ulist_.get(i));
 					}
-			}else {
-				//System.out.println((page-1)*divNum);
-				//System.out.println(allListNum-((page-1)*divNum));
-				for (int i = (page-1)*divNum; i < allListNum;i++) {
-					//System.out.println(page);
-					ulist.add(ulist_.get(i));
-				}
+			}
 
 			}
 

@@ -35,7 +35,9 @@
 	</c:if>
 	<c:if test="${listsize == 0 and from == 1}">
 	<h1>ユーザが登録されていません</h1>
+	<a href="insert" class="btn-square">追加</a>
 	</c:if>
+
 	<c:if test="${listsize != 0}">
 	<table>
 		<tr >
