@@ -92,6 +92,7 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession();
 		String uidStr=request.getParameter("uid");
 		int uid=Integer.parseInt(uidStr);
 
@@ -99,7 +100,9 @@ public class DeleteServlet extends HttpServlet {
 
 		dao.delete(uid);
 
-		response.sendRedirect("list");
+		//int lastpage = (int) session.getAttribute("lastPage_");
+		String url="list?page="+ 1;//("lastPage");
+		response.sendRedirect(url);
 	}
 
 }
