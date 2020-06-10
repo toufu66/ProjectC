@@ -80,7 +80,7 @@ public class InsertServlet extends HttpServlet {
 		User u= new User (0,name,ruby,gid,birthday,mail,0,pass,uclass);
 		dao.insert(u);
 
-		response.sendRedirect("list");
+		response.sendRedirect("list?page=1");
 	}
 
 }

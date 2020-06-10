@@ -49,5 +49,9 @@
 
 		</c:forEach>
 	</table>
+
+<c:if test="{$page}!=1"><a href="list?page=1">1</a></c:if>
+<a href="list?page={$page}">${page} </a>
+<c:if test="{$page}!=lastPage"><a href="list?page=${lastPage}">${lastPage}</a></c:if>
 </body>
 </html>
