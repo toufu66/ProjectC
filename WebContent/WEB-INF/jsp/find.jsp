@@ -7,10 +7,13 @@
 <link href="./css/header.css" rel="stylesheet">
 <link href="./css/top.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
-<title>Insert title here</title>
+<title>ユーザ検索</title>
 </head>
 <body>
 <jsp:include page = "./header.jsp" />
+
+<p id="error" style="color: red;"> ${finderrormsg}</p>
+
 <form action="find" method="post">
 <p><input type="radio" name="search" value="0" checked="checked">
 ID検索：<input type="text" name="uid"></p>

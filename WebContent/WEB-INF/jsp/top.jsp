@@ -10,11 +10,14 @@
 <link href="./css/top.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
 
-<title>Insert title here</title>
+<title>トップページ</title>
 </head>
 <body>
 <jsp:include page = "./header.jsp" />
 
+<h1>水族館Web会員管理システムです。<br>
+項目を選択してください。
+</h1>
 
 </body>
 </html>
