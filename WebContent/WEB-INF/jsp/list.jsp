@@ -39,9 +39,9 @@
 		<c:forEach var="ulist" items="${list}">
 
 			<tr >
-				<td>${ulist.uid }</td>
-				<td>${ulist.name }</td>
-				<td>${ulist.ruby }</td>
+				<td><c:out value ="${ulist.uid }" ></c:out></td>
+				<td><c:out value ="${ulist.name }"> </c:out> </td>
+				<td><c:out value ="${ulist.ruby }"></c:out></td>
 				<td><a href="detail?uid=${ulist.uid }" class="btn-square">詳細</a></td>
 				<td><a href="delete?uid=${ulist.uid }" class="btn-square-del">削除</a></td>
 			</tr>
