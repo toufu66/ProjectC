@@ -30,8 +30,11 @@
 	<c:if test="${date1  != null and date2 == null and listsize != 0}">
 	<h1>${date1 }以降の入館者一覧</h1>
 	</c:if>
-	<c:if test="${listsize == 0}">
+	<c:if test="${listsize == 0 and from == 2}">
 	<h1>検索結果はありません。</h1>
+	</c:if>
+	<c:if test="${listsize == 0 and from == 1}">
+	<h1>ユーザが登録されていません</h1>
 	</c:if>
 	<c:if test="${listsize != 0}">
 	<table>
