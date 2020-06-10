@@ -39,7 +39,6 @@ li.a {
   border: dashed 1px #FFF;
   transition: .4s;
 }
-
 .btn-circle-stitch:hover {
   background: #668ad8;
   box-shadow: 0px 0px 0px 5px #668ad8;
