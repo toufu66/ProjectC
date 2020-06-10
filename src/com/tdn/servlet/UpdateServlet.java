@@ -55,12 +55,47 @@ public class UpdateServlet extends HttpServlet {
 			UserDAO udao = new UserDAO();
 			ArrayList<Gender> gList =  udao.getGenderList();//new ArrayList<>();
 			//System.out.print(gid);
-			String genderstr=gList.get(gid-1).getGender();
+			String genderstr = null;
+
+			try {
+				genderstr=gList.get(gid-1).getGender();
+			}catch(IndexOutOfBoundsException e) {
+				genderstr = "エラー";
+				String errorMsg = "性別が取得できません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
+
+			if(genderstr.equals(null) || genderstr.equals("")) {
+				genderstr = "エラー";
+				String errorMsg = "性別が取得できません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
 
 			String uclassStr =request.getParameter("uclass");
 			int uclass =Integer.parseInt(uclassStr);
 			ArrayList<Userclass> userclassList = udao.getUserclassList();//new ArrayList<>();
-			String uclassstr =  userclassList.get(uclass-1).getUclass();
+			String uclassstr = null;
+			try {
+				uclassstr =  userclassList.get(uclass-1).getUclass();
+			}catch(IndexOutOfBoundsException e) {
+				uclassstr = "エラー";
+				String errorMsg = "会員区分が取得できません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
+
+			if(uclassstr.equals(null) || genderstr.equals("")) {
+				uclassstr = "エラー";
+				String errorMsg = "会員区分が取得できません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
 
 			String birthdayStr =request.getParameter("birthday");
 
@@ -83,8 +118,10 @@ public class UpdateServlet extends HttpServlet {
 			request.setAttribute("password",password);
 			request.setAttribute("uclass",uclass);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
-			dispatcher.forward(request, response);
+			if(!genderstr.equals("エラー") && !uclassstr.equals("エラー")) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
+				dispatcher.forward(request, response);
+			}
 		}else {
 			String RedirectUrl = "login";
 			response.sendRedirect(RedirectUrl);
