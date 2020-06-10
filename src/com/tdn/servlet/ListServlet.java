@@ -36,7 +36,10 @@ public class ListServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
-			String pageStr = request.getParameter("page");
+			String pageStr = "";
+			try {
+			pageStr = request.getParameter("page");
+
 			if(pageStr.equals(null)|| pageStr.equals("")) {
 				pageStr = "1";
 			}
@@ -81,7 +84,12 @@ public class ListServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 
 
-
+			}catch(NullPointerException e) {
+				String errorMsg = "ページ数が取得できません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
 
 
 
