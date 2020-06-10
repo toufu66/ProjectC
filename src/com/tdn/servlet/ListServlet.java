@@ -46,7 +46,7 @@ public class ListServlet extends HttpServlet {
 			int allListNum= ulist_.size();
 			int divNum=２;//1ページに表示するリスト数
 			int allPageNum=(int) Math.ceil(allListNum/(double) divNum);
-			int allPageNum_=(int) Math.ceil(allListNum+1/(double) divNum);
+			int allPageNum_=(int) Math.ceil((allListNum+1)/(double) divNum);
 			//System.out.println(allListNum);
 			//System.out.print(allPageNum);
 			request.setAttribute("page", page);
