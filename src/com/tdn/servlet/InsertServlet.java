@@ -80,7 +80,7 @@ public class InsertServlet extends HttpServlet {
 		UserDAO dao= new UserDAO();
 		User u= new User (0,name,ruby,gid,birthday,mail,0,pass,uclass);
 		dao.insert(u);
-		int lastpage = (int) session.getAttribute("lastPage");
+		int lastpage = (int) session.getAttribute("lastPage_");
 		String url="list?page="+ lastpage;//("lastPage");
 		response.sendRedirect(url);
 	}
