@@ -100,9 +100,11 @@ public class FindServlet extends HttpServlet {
 				}
 
 					ArrayList<User> userList = udao.findUser(name,ruby,date1Str,date2Str);
+					int listSize = userList.size();
 					request.setAttribute("list", userList);
 					request.setAttribute("date1", date1Str);
 					request.setAttribute("date2", date2Str);
+					request.setAttribute("listsize", listSize);
 
 
 					//list.jspにフォワード

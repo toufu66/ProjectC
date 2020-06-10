@@ -51,6 +51,7 @@ public class ListServlet extends HttpServlet {
 			//System.out.print(allPageNum);
 			request.setAttribute("page", page);
 			request.setAttribute("lastPage", allPageNum);
+			request.setAttribute("listsize", allListNum);
 			//if(session.getAttribute("lastPage_")==null) {
 				session.setAttribute("lastPage_",allPageNum_);
 			//}

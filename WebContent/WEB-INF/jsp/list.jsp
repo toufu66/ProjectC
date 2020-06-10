@@ -27,6 +27,10 @@
 	<c:if test="${date1  != null and date2 == null}">
 	<h1>${date1 }以降の入館者一覧</h1>
 	</c:if>
+	<c:if test="${listsize == 0}">
+	<h1>検索結果はありません。</h1>
+	</c:if>
+	<c:if test="${listsize != 0}">
 	<table>
 		<tr >
 			<th>ユーザID</th>
@@ -51,6 +55,7 @@
 		</c:forEach>
 	</table>
 
+
 <c:forEach var="i" begin="1" end="${lastPage}" step="1">
 
 <c:choose>
@@ -62,7 +67,7 @@
 		</c:when>
 </c:choose>
 </c:forEach>
-
+</c:if>
 
 </body>
 </html>
