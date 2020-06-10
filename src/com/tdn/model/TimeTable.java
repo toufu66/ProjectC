@@ -3,7 +3,7 @@ package com.tdn.model;
 import java.sql.Timestamp;
 /**
  * 水族館利用日のクラス
- * @author edu04
+ * @author 栄
  *
  */
 public class TimeTable {

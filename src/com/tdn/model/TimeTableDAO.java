@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 /**
  *
+ *@author 木村
  * 入館日DAO
  *
  */

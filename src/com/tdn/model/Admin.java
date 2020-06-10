@@ -1,7 +1,7 @@
 package com.tdn.model;
 /**
  * 管理者のクラス
- * @author edu04
+ * @author 栄
  *
  */
 public class Admin {
