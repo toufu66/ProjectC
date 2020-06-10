@@ -14,10 +14,10 @@
 <jsp:include page = "./header.jsp" />
 
 <form action="update" method="get">
-名前:<input type="text" name="name" value="${user.name }">
-ふりがな:<input type="text" name="ruby" value="${user.ruby }">
+名前:<input type="text" name="name" value="${user.name }" required>
+ふりがな:<input type="text" name="ruby" value="${user.ruby }" required>
 性別:<select name="gender" >
-				<c:forEach var="glist" items="${glist}">
+				<c:forEach var="glist" items="${glist}" >
 				<option value="${glist.gid }" <c:if test="${user.gid == glist.gid}"> selected </c:if>>${glist.gender }</option>
 				</c:forEach>
 			</select><br>
@@ -26,9 +26,9 @@
 				<option value="${uclist.cid }" <c:if test="${user.uclass == uclist.cid}"> selected </c:if>>${uclist.uclass }</option>
 				</c:forEach>
 			</select>
-生年月日:<input type="date" name="birthday" value="${birthday }"><br>
-メールアドレス:<input type="email" name="mail" value="${user.mail }"><br>
-保有ポイント:<input type="text" name="point" value="${user.point }"><br>
+生年月日:<input type="date" name="birthday" value="${birthday }" required><br>
+メールアドレス:<input type="email" name="mail" value="${user.mail }" required><br>
+保有ポイント:<input type="text" name="point" value="${user.point }" required><br>
 <input type="hidden" name="uid" value="${user.uid }">
 <input type="hidden" name="pass" value="${user.password }">
 <input type="submit" value="更新">
