@@ -51,8 +51,18 @@
 		</c:forEach>
 	</table>
 
-<c:if test="{$page}!=1"><a href="list?page=1">1</a></c:if>
-<a href="list?page={$page}">${page} </a>
-<c:if test="{$page}!=lastPage"><a href="list?page=${lastPage}">${lastPage}</a></c:if>
+<c:forEach var="i" begin="1" end="${lastPage}" step="1">
+
+<c:choose>
+		<c:when test="${i != page}" >
+			<a href="list?page=${i}">${i} </a>
+		</c:when>
+		<c:when test="${i == page}" >
+			${i}
+		</c:when>
+</c:choose>
+</c:forEach>
+
+
 </body>
 </html>

@@ -40,18 +40,25 @@ public class ListServlet extends HttpServlet {
 			com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
 			ArrayList<User> ulist_ =dao.findUser("", "", null, null);
 			int allListNum= ulist_.size();
-			int allPageNum=(int) Math.ceil(allListNum/50.);
+			int divNum=５０;//1ページに表示するリスト数
+			int allPageNum=(int) Math.ceil(allListNum/divNum);
+			//System.out.println(allListNum);
+			//System.out.print(allPageNum);
 			request.setAttribute("page", page);
 			request.setAttribute("lastPage", allPageNum);
 
 			ArrayList<User> ulist = new ArrayList<User>();
-
+			//System.out.println(page!=allPageNum);
 			if( page!=allPageNum) {
-				for (int i = (page-1)*50;i< page*50;i++) {
-					ulist.add(ulist.get(i));
+				for (int i = (page-1)*divNum;i< page*divNum;i++) {
+					//System.out.println(page);
+					ulist.add(ulist_.get(i));
 					}
 			}else {
-				for (int i = (page-1)*50;i< allListNum-((page-1)*50);i++) {
+				//System.out.println((page-1)*divNum);
+				//System.out.println(allListNum-((page-1)*divNum));
+				for (int i = (page-1)*divNum; i < allListNum;i++) {
+					System.out.println(page);
 					ulist.add(ulist_.get(i));
 				}
 
