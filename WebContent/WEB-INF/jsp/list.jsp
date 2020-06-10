@@ -41,12 +41,12 @@
 		</c:if>
 
 		<c:if test="${listsize != 0}">
-					<div class="pageNumber">
+					<div class="pageNumber" id= "listTable">
 				<c:forEach var="i" begin="1" end="${lastPage}" step="1">
 
 					<c:choose>
 						<c:when test="${i != page}">
-							<a href="list?page=${i}">${i} </a>
+							<a href="list?page=${i}#listTable">${i} </a>
 						</c:when>
 
 						<c:when test="${i == page}">
