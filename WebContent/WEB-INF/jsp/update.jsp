@@ -13,9 +13,9 @@
 <body>
 <jsp:include page = "./header.jsp" />
 <h1>変更</h1>
-<p>名前：<c:out value="${name }"></c:out></p>
+<p>名前：<c:out value="${name}"></c:out></p>
 <p>ふりがな：<c:out value="${ruby }"></c:out></p>
-<p>性別：$<c:out value="{genderstr }"></c:out></p>
+<p>性別：<c:out value="${genderstr }"></c:out></p>
 <p>誕生日:<c:out value="${birthday }"></c:out></p>
 <p>メールアドレス：<c:out value="${mail }"></c:out></p>
 <p>所有ポイント：<c:out value="${point }"></c:out></p>
