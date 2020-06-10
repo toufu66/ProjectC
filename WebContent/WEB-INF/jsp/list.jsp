@@ -18,7 +18,7 @@
 <h1>ユーザ一覧</h1>
 <a href="insert" class="btn-square">追加</a>
 </c:if>
-<c:if test="${from == 2}">
+<c:if test="${from == 2 and listsize != 0}">
 <h1>検索結果</h1>
 </c:if>
 	<c:if test="${date1  != null and date2 != null}">
