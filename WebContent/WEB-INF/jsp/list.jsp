@@ -16,7 +16,7 @@
 <jsp:include page = "./header.jsp" />
 <c:if test="${date1  == null and date2 == null}">
 <h1>ユーザ一覧</h1>
-<a href="insert?uid=${ulist.uid }" class="btn-square">追加</a>
+<a href="insert" class="btn-square">追加</a>
 </c:if>
 	<c:if test="${date1  != null and date2 != null}">
 	<h1>${date1 }～${date2 }の入館者一覧</h1>
