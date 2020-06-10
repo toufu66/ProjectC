@@ -47,7 +47,7 @@
 				<td><c:out value ="${ulist.name }"> </c:out> </td>
 				<td><c:out value ="${ulist.ruby }"></c:out></td>
 				<td><a href="detail?uid=${ulist.uid }" class="btn-square">詳細</a></td>
-				<td><a href="delete?uid=${ulist.uid }" class="btn-square-del">削除</a></td>
+				<td><a href="delete?uid=${ulist.uid }" id="btn-square-del">削除</a></td>
 			</tr>
 
 
