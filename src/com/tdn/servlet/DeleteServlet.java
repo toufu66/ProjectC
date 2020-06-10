@@ -41,6 +41,7 @@ public class DeleteServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
+			try {
 
 			request.setCharacterEncoding("UTF-8");
 			String uidStr=request.getParameter("uid");
@@ -80,6 +81,12 @@ public class DeleteServlet extends HttpServlet {
 
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/del.jsp");
 			dispatcher.forward(request, response);
+			}catch(NullPointerException | NumberFormatException e){
+				String errorMsg = "ユーザ情報が取得できません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
 		}else {
 			String RedirectUrl = "login";
 			response.sendRedirect(RedirectUrl);

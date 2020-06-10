@@ -42,6 +42,7 @@ public class UpdateServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
+			try {
 			request.setCharacterEncoding("UTF-8");
 			//データの取得
 			String uidStr =request.getParameter("uid");
@@ -129,6 +130,12 @@ public class UpdateServlet extends HttpServlet {
 
 			if(!genderstr.equals("エラー") && !uclassstr.equals("エラー") && !pointError.equals("エラー")) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
+				dispatcher.forward(request, response);
+			}
+			}catch(NullPointerException | NumberFormatException e){
+				String errorMsg = "ユーザ情報が取得できません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 				dispatcher.forward(request, response);
 			}
 		}else {
