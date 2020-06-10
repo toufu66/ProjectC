@@ -5,11 +5,11 @@
 	<header>
 
 		<div class="header_box">
-		<div class="2top">
-			<h1>
-				<a href="top" id ="top_link">多田野水族館web会員管理システム</a>
-			</h1>
-			</div>
+
+			<h2>
+				<a href="top" class="btn-circle-stitch" id ="top_link">HOME</a>
+			</h2>
+
 			<nav>
 				<ul class="nav-list">
 					<li class="nav-list-item"><a href="list?page=1" class="btn-circle-fishy">一覧・追加</a></li>
