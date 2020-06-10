@@ -14,9 +14,12 @@
 </head>
 <body>
 <jsp:include page = "./header.jsp" />
-<c:if test="${date1  == null and date2 == null and listsize != 0}">
+<c:if test="${date1  == null and date2 == null and listsize != 0 and from == 1}">
 <h1>ユーザ一覧</h1>
 <a href="insert" class="btn-square">追加</a>
+</c:if>
+<c:if test="${from == 2}">
+<h1>検索結果</h1>
 </c:if>
 	<c:if test="${date1  != null and date2 != null}">
 	<h1>${date1 }～${date2 }の入館者一覧</h1>
