@@ -36,14 +36,39 @@ public class ListServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
+			int page = Integer.parseInt(request.getParameter("page"));
 			com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
-			ArrayList<User> ulist =dao.findUser("", "", null, null);
+			ArrayList<User> ulist_ =dao.findUser("", "", null, null);
+			int allListNum= ulist_.size();
+			int allPageNum=(int) Math.ceil(allListNum/50.);
+			request.setAttribute("page", page);
+			request.setAttribute("lastPage", allPageNum);
+
+			ArrayList<User> ulist = new ArrayList<User>();
+
+			if( page!=allPageNum) {
+				for (int i = (page-1)*50;i< page*50;i++) {
+					ulist.add(ulist.get(i));
+					}
+			}else {
+				for (int i = (page-1)*50;i< allListNum-((page-1)*50);i++) {
+					ulist.add(ulist_.get(i));
+				}
+
+			}
 
 			request.setAttribute("list", ulist);
 
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/list.jsp");
 			dispatcher.forward(request, response);
+
+
+
+
+
+
+
 
 		}else {
 			String RedirectUrl = "login";

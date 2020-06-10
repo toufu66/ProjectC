@@ -39,35 +39,59 @@ public class DetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
+		String error=(String)session.getAttribute("errormsg");
+
+		if(error !=null) {
+			request.setAttribute("finderrormsg", error);
+			session.removeAttribute("errormsg");
+		}
+
 		if(admin != null) {
 			request.setCharacterEncoding("UTF-8");
 			String uidStr=request.getParameter("uid");
-			int uid=Integer.parseInt(uidStr);
 
 
-			UserDAO udao =new UserDAO();
-			User u =udao.findByUid(uid);
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			String userBirthday = sdf.format(u.getBirthday());
+			if(uidStr == null || !uidStr.equals("")) {
+				int uid=Integer.parseInt(uidStr);
+				UserDAO udao =new UserDAO();
+				User u =udao.findByUid(uid);
+				if(u != null) {
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+					String userBirthday = sdf.format(u.getBirthday());
 
-			ArrayList<Gender> gList = udao.getGenderList();//new ArrayList<>();
+					ArrayList<Gender> gList = udao.getGenderList();//new ArrayList<>();
 
 
-			ArrayList<Userclass> userclassList = udao.getUserclassList(); //new ArrayList<>();
+					ArrayList<Userclass> userclassList = udao.getUserclassList(); //new ArrayList<>();
 
 
 
-			request.setAttribute("user",u);
-			request.setAttribute("birthday", userBirthday);
-			request.setAttribute("glist", gList);
-			request.setAttribute("uclist", userclassList);
-			//request.setAttribute("uclass", uclass);
-			//request.setAttribute("gid", gid);
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/detail.jsp");
-			dispatcher.forward(request, response);
+					request.setAttribute("user",u);
+					request.setAttribute("birthday", userBirthday);
+					request.setAttribute("glist", gList);
+					request.setAttribute("uclist", userclassList);
+					//request.setAttribute("uclass", uclass);
+					//request.setAttribute("gid", gid);
+					RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/detail.jsp");
+					dispatcher.forward(request, response);
+				}else {
+					String RedirectUrl = "find";
+					String finderrorMsg = "ユーザが存在しない、またはユーザIDが不正です。";
+
+					session.setAttribute("finderrormsg", finderrorMsg);
+					response.sendRedirect(RedirectUrl);
+				}
+
+			}else {
+				String RedirectUrl = "find";
+				String finderrorMsg = "ユーザIDが不正です。";
+
+				session.setAttribute("finderrormsg", finderrorMsg);
+				response.sendRedirect(RedirectUrl);
+			}
 		}else {
-			String RedirectUrl = "login";
-			response.sendRedirect(RedirectUrl);
+		String RedirectUrl = "login";
+		response.sendRedirect(RedirectUrl);
 
 		}
 	}
