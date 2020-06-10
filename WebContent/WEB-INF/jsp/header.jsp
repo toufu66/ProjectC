@@ -11,7 +11,7 @@
 			</div>
 			<nav>
 				<ul class="nav-list">
-					<li class="nav-list-item"><a href="list?page=1" class="btn-circle-fishy">ユーザ一覧</a></li>
+					<li class="nav-list-item"><a href="list?page=1" class="btn-circle-fishy">ユーザ一覧・追加</a></li>
 					<li class="nav-list-item"><a href="find" class="btn-circle-fishy">ユーザ検索</a></li>
 					<li class="nav-list-item"><a href="logout" class="btn-circle-fishy">ログアウト</a></li>
 				</ul>
