@@ -58,7 +58,7 @@ public class ListServlet extends HttpServlet {
 			//}
 			ArrayList<User> ulist = new ArrayList<User>();
 			//System.out.println(page!=allPageNum);
-			if(ulist.size() != 0) {
+			if(ulist_.size() != 0) {
 				if( page!=allPageNum) {
 					for (int i = (page-1)*divNum;i< page*divNum;i++) {
 						ulist.add(ulist_.get(i));
