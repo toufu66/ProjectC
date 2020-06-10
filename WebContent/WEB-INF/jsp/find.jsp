@@ -13,7 +13,7 @@
 <body>
 <jsp:include page = "./header.jsp" />
 
-<p id="error" style="color: red;"> ${errormsg}</p>
+<p style="color: red;"> ${errormsg}</p>
 
 <form action="find" method="post">
 <p><input type="radio" name="search" value="0" checked="checked">

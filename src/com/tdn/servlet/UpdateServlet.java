@@ -134,7 +134,8 @@ public class UpdateServlet extends HttpServlet {
 		User u = new User(uid,name,ruby,gid,birthday,mail,point,password,uClass);
 		dao.update(u);
 
-		response.sendRedirect("list");
+		String RedirectUrl = "detail?uid=" + uid;
+		response.sendRedirect(RedirectUrl);
 	}
 
 }
