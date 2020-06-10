@@ -37,6 +37,13 @@ public class FindServlet extends HttpServlet {
 
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
+		String error=(String)session.getAttribute("finderrormsg");
+
+		if(error !=null) {
+			request.setAttribute("errormsg", error);
+			session.removeAttribute("finderrormsg");
+		}
+
 		if(admin != null) {
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/find.jsp");
 			dispatcher.forward(request, response);
@@ -53,6 +60,7 @@ public class FindServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession();
 
 		try {
 			//DAOを用意
@@ -104,10 +112,11 @@ public class FindServlet extends HttpServlet {
 
 
 			}catch(NumberFormatException e){
-				request.setAttribute("ferrormasg", e.getMessage());
+				String RedirectUrl = "find";
+				String finderrorMsg = "ユーザIDが不正です。";
 
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/find.jsp");
-				dispatcher.forward(request, response);
+				session.setAttribute("finderrormsg", finderrorMsg);
+				response.sendRedirect(RedirectUrl);
 			}
 	}
 

@@ -39,12 +39,7 @@ public class DetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
-		String error=(String)session.getAttribute("errormsg");
-
-		if(error !=null) {
-			request.setAttribute("finderrormsg", error);
-			session.removeAttribute("errormsg");
-		}
+		
 
 		if(admin != null) {
 			request.setCharacterEncoding("UTF-8");
