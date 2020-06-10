@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 
@@ -11,6 +12,7 @@
 			href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
 		<title>ユーザ検索フォーム</title>
 	</head>
+
 	<body>
 		<jsp:include page="./header.jsp" />
 
@@ -31,5 +33,7 @@
 
 			<input type="submit" value="検索">
 		</form>
+
 	</body>
+
 </html>
