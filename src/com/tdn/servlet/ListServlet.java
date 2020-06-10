@@ -36,7 +36,11 @@ public class ListServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		Admin admin = (Admin) session.getAttribute("admin");
 		if(admin != null) {
-			int page = Integer.parseInt(request.getParameter("page"));
+			String pageStr = request.getParameter("page");
+			if(pageStr.equals(null)|| pageStr.equals("")) {
+				pageStr = "1";
+			}
+			int page = Integer.parseInt(pageStr);
 			com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
 			ArrayList<User> ulist_ =dao.findUser("", "", null, null);
 			int allListNum= ulist_.size();
