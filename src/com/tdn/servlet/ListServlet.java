@@ -40,7 +40,7 @@ public class ListServlet extends HttpServlet {
 			com.tdn.model.UserDAO dao= new com.tdn.model.UserDAO();
 			ArrayList<User> ulist_ =dao.findUser("", "", null, null);
 			int allListNum= ulist_.size();
-			int divNum=2;
+			int divNum=５０;//1ページに表示するリスト数
 			int allPageNum=(int) Math.ceil(allListNum/divNum);
 			//System.out.println(allListNum);
 			//System.out.print(allPageNum);
