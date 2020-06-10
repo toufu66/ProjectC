@@ -102,8 +102,17 @@ public class UpdateServlet extends HttpServlet {
 			String mail =request.getParameter("mail");
 
 			String pointStr =request.getParameter("point");
-			int point =Integer.parseInt(pointStr);
-
+			int point = 0;
+			String pointError = "";
+			try{
+				point =Integer.parseInt(pointStr);
+			}catch (NumberFormatException e) {
+				pointError = "エラー";
+				String errorMsg = "ポイントが正常ではありません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
 			String password =request.getParameter("pass");
 
 			request.setAttribute("uid",uid);
@@ -118,7 +127,7 @@ public class UpdateServlet extends HttpServlet {
 			request.setAttribute("password",password);
 			request.setAttribute("uclass",uclass);
 
-			if(!genderstr.equals("エラー") && !uclassstr.equals("エラー")) {
+			if(!genderstr.equals("エラー") && !uclassstr.equals("エラー") && !pointError.equals("エラー")) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
 				dispatcher.forward(request, response);
 			}
