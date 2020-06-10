@@ -44,6 +44,8 @@ package データベース{
 		+update(User user):void
 		+fyndByUid(int uid):User
 		+findUser(String name,String ruby,Timestamp date1,Timestamp date2):ArryList<User>
+		+getUserclassList():ArrayList<Userclass>
+		+getGenderList():ArrayList<Gender>
 	}
 	class User{
 		-uid:int
@@ -93,9 +95,9 @@ Find ..> UserDAO
 Detail ..>UserDAO
 UserDAO *--  User
 AdminDAO *--  Admin
-User *-- TimeTable
-User *-- Userclass
-User *-- Gender
+UserDAO *-- TimeTable
+UserDAO *-- Userclass
+UserDAO *-- Gender
 
 }
 @enduml
