@@ -20,6 +20,7 @@ import com.tdn.model.User;
 import com.tdn.model.UserDAO;
 import com.tdn.model.Userclass;
 
+
 @WebServlet("/update")
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -115,7 +116,7 @@ public class UpdateServlet extends HttpServlet {
 			}
 			String password =request.getParameter("pass");
 
-			if(birthdayStr.equals("") || !ruby.matches("^[\\u3040-\\u309F]+$") || uidStr.equals("") || name.equals("") || ruby.equals("")|| mail.equals("") || pointStr.equals("")) {
+			if(birthdayStr.equals("") || !ruby.matches("^[\\u3040-\\u309F]+$") || !mail.contains("@") || !mail.matches("^[A-Za-z0-9]+$")||uidStr.equals("") || name.equals("") || ruby.equals("")|| mail.equals("") || pointStr.equals("")) {
 				dataError = "エラー";
 				String errorMsg = "入力値が正常ではありません。";
 				request.setAttribute("emsg", errorMsg);
