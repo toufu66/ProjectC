@@ -11,11 +11,11 @@
 	</head>
 	<body>
 		<jsp:include page = "./header.jsp" />
-		<h1 style="color: red;">エラー</h1>
+		<h1 style="color: red; text-align: center">エラー</h1>
 
-		<p>ごめんなさい、エラーが発生しました。</p>
-		<p>エラー内容：${emsg }</p>
+		<p style="text-align: center">ごめんなさい、エラーが発生しました。</p>
+		<p style="text-align: center">エラー内容：${emsg }</p>
 
-		<p><a href="top">戻る</a>
+		<p style="text-align: center"><a href="top">戻る</a>
 	</body>
 </html>
