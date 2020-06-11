@@ -41,7 +41,7 @@
 
 
 			<label for="pass">パスワード:</label>
-			<input type="password" pattern="^[0-9A-Za-z]+$" name="pass" id="pass" required><br>
+			<input type="password" pattern="^[0-9A-Za-z]+$" name="password" id="pass" required><br>
 
 			<label for="passconf">パスワード（確認）:</label>
 			<input type="password" pattern="^[0-9A-Za-z]+$" name="passconf" id="passconf" required><br>
