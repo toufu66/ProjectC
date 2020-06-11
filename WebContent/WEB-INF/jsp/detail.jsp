@@ -15,7 +15,7 @@
 		<jsp:include page="./header.jsp" />
 		<form action="update" method="get">
 			名前:<input type="text" name="name" value="${user.name }" required>
-			ふりがな:<input type="text" name="ruby" value="${user.ruby }" required>
+			ふりがな:<input type="text" pattern="[\u3041-\u3096]*" name="ruby" value="${user.ruby }" required>
 			性別:<select name="gender">
 				<c:forEach var="glist" items="${glist}">
 					<option value="${glist.gid }"

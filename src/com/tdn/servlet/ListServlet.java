@@ -85,7 +85,7 @@ public class ListServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 
 
-			}catch(NullPointerException e) {
+			}catch(NullPointerException | NumberFormatException e) {
 				String errorMsg = "ページ数が取得できません。";
 				request.setAttribute("emsg", errorMsg);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
