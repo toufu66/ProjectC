@@ -116,7 +116,7 @@ public class UpdateServlet extends HttpServlet {
 			}
 			String password =request.getParameter("pass");
 
-			if(birthdayStr.equals("") || !ruby.matches("^[\\u3040-\\u309F]+$") || !mail.contains("@") || !mail.matches("^[A-Za-z0-9]+$")||uidStr.equals("") || name.equals("") || ruby.equals("")|| mail.equals("") || pointStr.equals("")) {
+			if(birthdayStr.equals("") || uidStr.equals("") || !ruby.matches("^[\\u3040-\\u309F]+$") || !mail.contains("@") || name.equals("") || ruby.equals("")|| mail.equals("") || pointStr.equals("")) {
 				dataError = "エラー";
 				String errorMsg = "入力値が正常ではありません。";
 				request.setAttribute("emsg", errorMsg);
