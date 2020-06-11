@@ -20,10 +20,6 @@ import com.tdn.model.User;
 import com.tdn.model.UserDAO;
 import com.tdn.model.Userclass;
 
-/**
- * Servlet implementation class UpdateServlet
- * @author メイン栄　木村　　サブ全員
- */
 @WebServlet("/update")
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

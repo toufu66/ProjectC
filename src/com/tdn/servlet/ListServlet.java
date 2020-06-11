@@ -14,10 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.tdn.model.Admin;
 import com.tdn.model.User;
 
-/**
- * Servlet implementation class List_Servlet
- * @author メイン全員
- */
 @WebServlet("/list")
 public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

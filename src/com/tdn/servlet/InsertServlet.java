@@ -18,10 +18,6 @@ import com.tdn.model.User;
 import com.tdn.model.UserDAO;
 
 
-/**
- * Servlet implementation class InsertServlet
- * @author メイン古閑　サブ全員
- */
 @WebServlet("/insert")
 public class InsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

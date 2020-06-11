@@ -12,10 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.tdn.model.Admin;
 
-/**
- * Servlet implementation class TopServlet
- * @author メイン古閑　サブ全員
- */
+
 @WebServlet("/top")
 public class TopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
