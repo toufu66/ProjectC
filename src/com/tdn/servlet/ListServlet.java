@@ -14,10 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.tdn.model.Admin;
 import com.tdn.model.User;
 
-/**
- * Servlet implementation class List_Servlet
- * @author メイン全員
- */
 @WebServlet("/list")
 public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -85,7 +81,7 @@ public class ListServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 
 
-			}catch(NullPointerException e) {
+			}catch(NullPointerException | NumberFormatException e) {
 				String errorMsg = "ページ数が取得できません。";
 				request.setAttribute("emsg", errorMsg);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");

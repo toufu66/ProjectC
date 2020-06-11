@@ -13,10 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.tdn.model.Admin;
 import com.tdn.model.AdminDAO;
 
-/**
- * Servlet implementation class LoginServlet
- * @author メイン田尻
- */
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

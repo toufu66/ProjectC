@@ -1,9 +1,5 @@
 package com.tdn.model;
-/**
- * 会員のクラス
- * @author 栄
- *
- */
+
 public class Userclass {
 	/**
 	 * 会員クラスのID

@@ -17,10 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.tdn.model.TimeTable;
 import com.tdn.model.TimeTableDAO;
 
-/**
- * Servlet implementation class TimeTableServlet
- * @author メイン木村
- */
+
 @WebServlet("/TimeTable")
 public class TimeTableServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

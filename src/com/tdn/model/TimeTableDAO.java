@@ -4,12 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-/**
- *
- *@author 木村
- * 入館日DAO
- *
- */
+
 public class TimeTableDAO {
 	// 定数宣言
 	static final String URL =  "jdbc:mysql://localhost/aquarium?useSSL=false";

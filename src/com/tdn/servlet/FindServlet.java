@@ -15,10 +15,7 @@ import com.tdn.model.Admin;
 import com.tdn.model.User;
 import com.tdn.model.UserDAO;
 
-/**
- * Servlet implementation class FindServlet
- * @author メイン木村　サブ全員
- */
+
 @WebServlet("/find")
 public class FindServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

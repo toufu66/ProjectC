@@ -19,10 +19,6 @@ import com.tdn.model.UserDAO;
 import com.tdn.model.Userclass;
 
 
-/**
- * Servlet implementation class DeleteServlet
- * @author メイン田尻　サブ全員
- */
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

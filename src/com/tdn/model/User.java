@@ -1,12 +1,7 @@
 package com.tdn.model;
 
 import java.sql.Timestamp;
-/**
- *
- * ユーザクラス
- * @author 古閑
- *
- */
+
 public class User {
 	/**
 	 * ユーザID

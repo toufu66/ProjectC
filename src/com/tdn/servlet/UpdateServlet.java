@@ -20,10 +20,6 @@ import com.tdn.model.User;
 import com.tdn.model.UserDAO;
 import com.tdn.model.Userclass;
 
-/**
- * Servlet implementation class UpdateServlet
- * @author メイン栄　木村　　サブ全員
- */
 @WebServlet("/update")
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,6 +41,7 @@ public class UpdateServlet extends HttpServlet {
 		if(admin != null) {
 			try {
 			request.setCharacterEncoding("UTF-8");
+			String dataError = "";
 			//データの取得
 			String uidStr =request.getParameter("uid");
 			int uid =Integer.parseInt(uidStr);
@@ -101,21 +98,30 @@ public class UpdateServlet extends HttpServlet {
 
 			String birthdayStr =request.getParameter("birthday");
 
+
 			String mail =request.getParameter("mail");
 
 			String pointStr =request.getParameter("point");
 			int point = 0;
-			String pointError = "";
+
 			try{
 				point =Integer.parseInt(pointStr);
 			}catch (NumberFormatException e) {
-				pointError = "エラー";
-				String errorMsg = "ポイントが正常ではありません。";
+				dataError = "エラー";
+				String errorMsg = "入力値が正常ではありません。";
 				request.setAttribute("emsg", errorMsg);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
 				dispatcher.forward(request, response);
 			}
 			String password =request.getParameter("pass");
+
+			if(birthdayStr.equals("") || !ruby.matches("^[\\u3040-\\u309F]+$") || uidStr.equals("") || name.equals("") || ruby.equals("")|| mail.equals("") || pointStr.equals("")) {
+				dataError = "エラー";
+				String errorMsg = "入力値が正常ではありません。";
+				request.setAttribute("emsg", errorMsg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+				dispatcher.forward(request, response);
+			}
 
 			request.setAttribute("uid",uid);
 			request.setAttribute("name",name);
@@ -129,7 +135,7 @@ public class UpdateServlet extends HttpServlet {
 			request.setAttribute("password",password);
 			request.setAttribute("uclass",uclass);
 
-			if(!genderstr.equals("エラー") && !uclassstr.equals("エラー") && !pointError.equals("エラー")) {
+			if(!genderstr.equals("エラー") && !uclassstr.equals("エラー") && !dataError.equals("エラー")) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/update.jsp");
 				dispatcher.forward(request, response);
 			}

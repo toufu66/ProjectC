@@ -18,10 +18,6 @@ import com.tdn.model.User;
 import com.tdn.model.UserDAO;
 import com.tdn.model.Userclass;
 
-/**
- * Servlet implementation class DetailServlet
- * @author メイン栄　サブ全員
- */
 @WebServlet("/detail")
 public class DetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

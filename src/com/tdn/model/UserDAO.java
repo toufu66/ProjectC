@@ -8,12 +8,6 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-/**
- *
- * ユーザDAO
- * @author 木村
- *
- */
 public class UserDAO {
 	// 定数宣言
 			static final String URL =  "jdbc:mysql://localhost/aquarium?useSSL=false";
